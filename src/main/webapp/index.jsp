@@ -2,12 +2,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Cierra</title>
+    <link rel="stylesheet" href="./css/Main.css">
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<h1 class="MyTitle">Cierra —— 一个基于JSP的问卷发布及填写网站</h1>
+<!--<a href="hello-servlet">Hello Servlet</a>-->
 </body>
+<aside class="MyAside">
+
+    <img
+
+            class="AsideControlButton"
+            alt="这是一个按钮"
+            src="./resources/thisisabutton.png"
+
+    />
+
+</aside>
 </html>
