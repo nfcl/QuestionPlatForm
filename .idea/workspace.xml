@@ -9,17 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="添加了登录页面和登录信息的表单提交。&#10;貌似版本太低所以不能使用@WebServlet注解进行标注Servlet，只能在web.xml中注解">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="添加了注册页面&#10;将登录页面和注册页面的表单提交目标转移到一个iframe上完成了同页面的表单提交">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/Main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/SignIn.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +195,7 @@
       <workItem from="1683249258202" duration="801000" />
       <workItem from="1683250708939" duration="5743000" />
       <workItem from="1683266515272" duration="9587000" />
-      <workItem from="1683276176676" duration="11837000" />
+      <workItem from="1683276176676" duration="13328000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -240,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683279056840</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="添加了注册页面&#10;将登录页面和注册页面的表单提交目标转移到一个iframe上完成了同页面的表单提交">
+      <created>1683292033727</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683292033727</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +275,7 @@
     <MESSAGE value="修改了一下README的描述" />
     <MESSAGE value="修改了侧边栏打开图标" />
     <MESSAGE value="添加了登录页面和登录信息的表单提交。&#10;貌似版本太低所以不能使用@WebServlet注解进行标注Servlet，只能在web.xml中注解" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加了登录页面和登录信息的表单提交。&#10;貌似版本太低所以不能使用@WebServlet注解进行标注Servlet，只能在web.xml中注解" />
+    <MESSAGE value="添加了注册页面&#10;将登录页面和注册页面的表单提交目标转移到一个iframe上完成了同页面的表单提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加了注册页面&#10;将登录页面和注册页面的表单提交目标转移到一个iframe上完成了同页面的表单提交" />
   </component>
 </project>
