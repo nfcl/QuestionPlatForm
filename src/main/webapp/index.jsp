@@ -14,10 +14,12 @@
     <img
 
             class="AsideControlButton"
-            alt="这是一个按钮"
+            alt="这是一个按钮(错误的这是一个图标)"
             src="./resources/thisisabutton.png"
 
     />
+
+    <h2 class="MyAside-Item">ceshi</h2>
 
 </aside>
 </html>
