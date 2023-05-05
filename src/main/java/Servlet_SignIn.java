@@ -1,27 +1,29 @@
-package com.question.questionplatform;
-
 import java.io.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import jakarta.servlet.http.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class HelloServlet extends HttpServlet {
-    private String message;
+public class Servlet_SignIn extends HttpServlet {
 
     public void init() {
-        message = "Hello World!";
+
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        String account = request.getParameter("account");
+        String password = request.getParameter("password");
+
         response.setContentType("text/html");
 
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
+        out.println("<h1> 账号 : " + account + "</h1>");
+        out.println("<h1> 密码 : " + password + "</h1>");
         out.println("</body></html>");
     }
 
     public void destroy() {
+
     }
+
 }
