@@ -146,7 +146,7 @@
 
 #MySignUp{
 
-    background-color: blue;
+    padding: 50px 0;
 
 }
 
@@ -161,5 +161,12 @@
 
     font-size: 25px;
     font-family: 黑体, serif;
+
+}
+
+.Myiframe{
+
+    border: 0;
+    height: 50px;
 
 }

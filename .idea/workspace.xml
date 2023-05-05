@@ -9,19 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="修改了侧边栏打开图标">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/servlet-api.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/jsp/SignIn.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="添加了登录页面和登录信息的表单提交。&#10;貌似版本太低所以不能使用@WebServlet注解进行标注Servlet，只能在web.xml中注解">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/question/questionplatform/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/Main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/Main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/jsp/SignIn.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,14 +30,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/lib/servlet-api.jar!/jakarta/servlet/http/HttpServlet.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -62,16 +63,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/JAVA/QuestionPlatform/lib",
+    "last_opened_file_path": "E:/Download/mysql-connector-j-8.0.32/mysql-connector-j-8.0.32/mysql-connector-j-8.0.32.jar",
     "list.type.of.created.stylesheet": "CSS",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "库",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.41954023",
     "settings.editor.selected.configurable": "project.propCompiler"
   },
   "keyToStringList": {
@@ -82,7 +84,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\JAVA\QuestionPlatform\lib" />
       <recent name="E:\JAVA\QuestionPlatform\src\main\webapp\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat 服务器.Tomcat 10.1.7">
@@ -197,7 +203,7 @@
       <workItem from="1683249258202" duration="801000" />
       <workItem from="1683250708939" duration="5743000" />
       <workItem from="1683266515272" duration="9587000" />
-      <workItem from="1683276176676" duration="1994000" />
+      <workItem from="1683276176676" duration="11837000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -227,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683251225749</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="添加了登录页面和登录信息的表单提交。&#10;貌似版本太低所以不能使用@WebServlet注解进行标注Servlet，只能在web.xml中注解">
+      <created>1683279056840</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683279056840</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,6 +275,7 @@
     <MESSAGE value="建立开始页面作为网站入口&#10;在开始页面添加了标题和侧边栏" />
     <MESSAGE value="修改了一下README的描述" />
     <MESSAGE value="修改了侧边栏打开图标" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了侧边栏打开图标" />
+    <MESSAGE value="添加了登录页面和登录信息的表单提交。&#10;貌似版本太低所以不能使用@WebServlet注解进行标注Servlet，只能在web.xml中注解" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加了登录页面和登录信息的表单提交。&#10;貌似版本太低所以不能使用@WebServlet注解进行标注Servlet，只能在web.xml中注解" />
   </component>
 </project>

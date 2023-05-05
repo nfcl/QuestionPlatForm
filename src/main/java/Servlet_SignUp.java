@@ -1,12 +1,16 @@
-import java.io.*;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 
-import jakarta.servlet.http.*;
-
-public class Servlet_SignIn extends HttpServlet {
+public class Servlet_SignUp extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        String name = request.getParameter("name");
         String account = request.getParameter("account");
         String password = request.getParameter("password");
 
@@ -25,19 +29,26 @@ public class Servlet_SignIn extends HttpServlet {
             Class.forName("com.mysql.jdbc.Driver");
 
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionplatform", "root", "159357zjy");
-            stmt = connection.prepareStatement("select count(*) from user where uAccount=? and uPassword=?");
+            stmt = connection.prepareStatement("select count(*) from user where uAccount=?");
             stmt.setString(1, account);
-            stmt.setString(2, password);
             rs = stmt.executeQuery();
 
             rs.next();
 
             if (rs.getInt(1) == 1) {
-                out.println("<div style='text-align : center'>登录成功！</div>");
+                out.println("<div style='text-align : center'>账号已存在！</div>");
             }
             else{
 
-                out.println("<div style='text-align : center'>用户名或密码错误，请重新输入！</div>");
+                stmt = connection.prepareStatement("insert into user (uName, uAccount, uPassword) values (?,?,?)");
+
+                stmt.setString(1,name);
+                stmt.setString(2,account);
+                stmt.setString(3,password);
+
+                stmt.executeUpdate();
+
+                out.println("<div style='text-align : center'>注册成功！</div>");
             }
 
             rs.close();

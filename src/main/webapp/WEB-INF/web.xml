@@ -15,4 +15,14 @@
         <url-pattern>/Servlet_SignIn</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Servlet_SignUp</servlet-name>
+        <servlet-class>Servlet_SignUp</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_SignUp</servlet-name>
+        <url-pattern>/Servlet_SignUp</url-pattern>
+    </servlet-mapping>
+
 </web-app>
