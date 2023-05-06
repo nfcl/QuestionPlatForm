@@ -23,7 +23,7 @@ ShowQuestionnaireList = function(){
     //获得当前页数
     let CurrentPage = document.getElementById("HomePageListPageNum").textContent;
     //计算开头的列表项下标
-    let firstItemIndex = (CurrentPage - 1) * PerPageListItemNum + 1;
+    let firstItemIndex = (CurrentPage - 1) * PerPageListItemNum;
     //计算结尾的列表项下标
     let lastItemIndex  = (CurrentPage - 0) * PerPageListItemNum;
 

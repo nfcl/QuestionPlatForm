@@ -22,9 +22,9 @@ public class Servlet_LookThroughQuestionnaires extends HttpServlet {
             throw new IOException("起始下标大于结束下标");
 
         }
-        else if(FirstItemIndex < 1){
+        else if(FirstItemIndex < 0){
 
-            throw new IOException("起始下标小于1");
+            throw new IOException("起始下标小于0");
 
         }
 
