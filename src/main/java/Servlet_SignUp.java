@@ -14,6 +14,30 @@ public class Servlet_SignUp extends HttpServlet {
         String account = request.getParameter("account");
         String password = request.getParameter("password");
 
+        PrintWriter out = response.getWriter();
+
+        if(name == null || name.isEmpty()){
+
+            out.println("<div style='text-align : center'>名称为空！</div>");
+
+            return;
+
+        }
+        else if(account == null || account.isEmpty()){
+
+            out.println("<div style='text-align : center'>账号为空！</div>");
+
+            return;
+
+        }
+        else if(password == null || password.isEmpty()){
+
+            out.println("<div style='text-align : center'>密码为空！</div>");
+
+            return;
+
+        }
+
         Connection connection = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -22,14 +46,12 @@ public class Servlet_SignUp extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        PrintWriter out = response.getWriter();
-
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
 
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionplatform", "root", "159357zjy");
-            stmt = connection.prepareStatement("select count(*) from user where uAccount=?");
+            stmt = connection.prepareStatement("select count(*) from user where user_Account=?");
             stmt.setString(1, account);
             rs = stmt.executeQuery();
 
@@ -40,7 +62,7 @@ public class Servlet_SignUp extends HttpServlet {
             }
             else{
 
-                stmt = connection.prepareStatement("insert into user (uName, uAccount, uPassword) values (?,?,?)");
+                stmt = connection.prepareStatement("insert into user (user_Name, user_Account, user_Password) values (?,?,?)");
 
                 stmt.setString(1,name);
                 stmt.setString(2,account);

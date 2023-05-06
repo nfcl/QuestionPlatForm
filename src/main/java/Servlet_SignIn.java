@@ -10,6 +10,23 @@ public class Servlet_SignIn extends HttpServlet {
         String account = request.getParameter("account");
         String password = request.getParameter("password");
 
+        PrintWriter out = response.getWriter();
+
+        if(account == null || account.isEmpty()){
+
+            out.println("<div style='text-align : center'>账号为空！</div>");
+
+            return;
+
+        }
+        else if(password == null || password.isEmpty()){
+
+            out.println("<div style='text-align : center'>密码为空！</div>");
+
+            return;
+
+        }
+
         Connection connection = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -18,14 +35,12 @@ public class Servlet_SignIn extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        PrintWriter out = response.getWriter();
-
         try {
 
             Class.forName("com.mysql.jdbc.Driver");
 
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionplatform", "root", "159357zjy");
-            stmt = connection.prepareStatement("select count(*) from user where uAccount=? and uPassword=?");
+            stmt = connection.prepareStatement("select count(*) from user where user_Account=? and user_Password=?");
             stmt.setString(1, account);
             stmt.setString(2, password);
             rs = stmt.executeQuery();

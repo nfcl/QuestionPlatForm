@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,16 +13,28 @@
 </div>
 <div class="MyNav">
 
-    <a href="#MySignIn" class="MyNav-Item" onclick="ResetForm('SignInForm');ResetIFrame('SignInFrame')">登录</a>
-    <a href="#MySignUp" class="MyNav-Item" onclick="ResetForm('SignUpForm');ResetIFrame('SignUpFrame')">注册</a>
+    <div class="MyNav-Item" onclick="ClickA('SignInA');ResetForm('SignInForm');ResetIFrame('SignInFrame')">登录</div>
+    <div class="MyNav-Item" onclick="ClickA('SignUpA');ResetForm('SignUpForm');ResetIFrame('SignUpFrame')">注册</div>
+    <a href="#MySignIn" id="SignInA"></a>
+    <a href="#MySignUp" id="SignUpA"></a>
 
 </div>
 
 <div class="MyCont">
 
     <div class="MyAside">
-        <img class="AsideControlButton" alt="这是一个按钮(×这是一个图标" src="./resources/thisisabutton.png"/>
-        <h1 class="MyAside-Item">ceshi</h1>
+
+        <div>
+            <img id="RealAsideIcon" class="AsideControlButton" alt="你被骗了" src="./resources/nibeipianle.png"/>
+            <img id="FakeAsideIcon" class="AsideControlButton" alt="这是一个按钮" src="./resources/thisisabutton.png"/>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h1 class="MyAside-Item" onclick="ClickA('homePageA');ShowQuestionnaireList();AsideBarFit();">主页</h1>
+        <a id="homePageA" href="#MyHomePage" target="HomePage_QnListView"></a>
+
+
     </div>
 
     <div class="MyFrame">
@@ -73,9 +86,50 @@
 
         </div>
 
+        <div align="center" id="MyHomePage" class="MyContFrame">
 
+            <ul id="HomePageQnListView">
+
+                <li class="HomePageQnLi">
+                    <h1 class="HomePageQnName">问卷标题</h1>
+                    <div class="HomePageQnUser">问卷发起人</div>
+                    <div class="HomePageQnStartTime">问卷开始时间</div>
+                </li>
+                <li class="HomePageQnLi">
+                    <h1 class="HomePageQnName">问卷标题</h1>
+                    <div class="HomePageQnUser">问卷发起人</div>
+                    <div class="HomePageQnStartTime">问卷开始时间</div>
+                </li>
+                <li class="HomePageQnLi">
+                    <h1 class="HomePageQnName">问卷标题</h1>
+                    <div class="HomePageQnUser">问卷发起人</div>
+                    <div class="HomePageQnStartTime">问卷开始时间</div>
+                </li>
+                <li class="HomePageQnLi">
+                    <h1 class="HomePageQnName">问卷标题</h1>
+                    <div class="HomePageQnUser">问卷发起人</div>
+                    <div class="HomePageQnStartTime">问卷开始时间</div>
+                </li>
+
+            </ul>
+
+            <div>
+                <span class="HomePageJumpButton"><<</span>
+                <span class="HomePageJumpButton"><</span>
+                <span id="HomePageListPageNum">1</span>
+                <span class="HomePageJumpButton">></span>
+                <span class="HomePageJumpButton">>></span>
+            </div>
+
+        </div>
 
     </div>
+
+    <script>
+
+        AsideBarFit();
+
+    </script>
 
 </div>
 </body>

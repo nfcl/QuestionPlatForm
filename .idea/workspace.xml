@@ -9,9 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="添加了注册页面&#10;将登录页面和注册页面的表单提交目标转移到一个iframe上完成了同页面的表单提交">
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="完成了数据库的结构水一下commit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Questionnaire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/nibeipianle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/nibeipianle.psd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/Main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +34,8 @@
       <list>
         <option value="CSS File" />
         <option value="Jsp File" />
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,28 +63,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Download/mysql-connector-j-8.0.32/mysql-connector-j-8.0.32/mysql-connector-j-8.0.32.jar",
-    "list.type.of.created.stylesheet": "CSS",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "库",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.41954023",
-    "settings.editor.selected.configurable": "project.propCompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/MYSQL&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.41954023&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;SQL Dialects&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\JAVA\QuestionPlatform\lib" />
@@ -88,6 +99,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Tomcat 10.1.7" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.7" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="BROWSER_ID" value="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
       <deployment>
         <artifact name="QuestionPlatform:war exploded">
           <settings>
@@ -195,7 +207,13 @@
       <workItem from="1683249258202" duration="801000" />
       <workItem from="1683250708939" duration="5743000" />
       <workItem from="1683266515272" duration="9587000" />
-      <workItem from="1683276176676" duration="13328000" />
+      <workItem from="1683276176676" duration="15217000" />
+      <workItem from="1683296748245" duration="6144000" />
+      <workItem from="1683330467100" duration="6056000" />
+      <workItem from="1683346964129" duration="702000" />
+      <workItem from="1683368232869" duration="1026000" />
+      <workItem from="1683370707477" duration="428000" />
+      <workItem from="1683371155648" duration="4514000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -239,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683292033727</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="完成了数据库的结构水一下commit">
+      <created>1683294836467</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683294836467</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +301,11 @@
     <MESSAGE value="修改了侧边栏打开图标" />
     <MESSAGE value="添加了登录页面和登录信息的表单提交。&#10;貌似版本太低所以不能使用@WebServlet注解进行标注Servlet，只能在web.xml中注解" />
     <MESSAGE value="添加了注册页面&#10;将登录页面和注册页面的表单提交目标转移到一个iframe上完成了同页面的表单提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加了注册页面&#10;将登录页面和注册页面的表单提交目标转移到一个iframe上完成了同页面的表单提交" />
+    <MESSAGE value="完成了数据库的结构水一下commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了数据库的结构水一下commit" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

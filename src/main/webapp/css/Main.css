@@ -1,6 +1,7 @@
 *{
     padding: 0 0 0 0;
     margin: 0 0 0 0;
+    user-select: none;
 }
 
 .MyTitle {
@@ -16,23 +17,22 @@
 
 .MyAside{
 
-    position: relative;
+    position: absolute;
     background: #7c7c7c;
     width: 50px;
-    height: auto;
     transition: width 1s;
+    z-index: 9999;
 
 }
 
 .MyAside:hover{
-    width: 250px;
+    width: 20%;
 }
 
 .AsideControlButton{
 
     border: 0;
-    position: relative;
-    padding: 0 0 0 0;
+    position: absolute;
     background-color: black;
     width: 50px;
     opacity: 100%;
@@ -40,9 +40,12 @@
 
 }
 
-.MyAside:hover .AsideControlButton{
+.MyAside:hover #FakeAsideIcon{
     opacity: 0;
-    padding: 0 100px 0 100px;
+}
+
+.MyAside:hover .AsideControlButton{
+    padding: 0 calc(calc(100% - 50px)/2);
 }
 
 .MyAside-Item{
@@ -50,7 +53,7 @@
     border-width: 5px 0 5px 0;
     border-color: #222222;
     text-align: center;
-    transition: opacity 1s,background-color 0.5s,color 0.5s;
+    transition: opacity 0.5s,background-color 0.5s,color 0.5s;
     padding: 10px 0 10px 0;
     margin: 5px 0 5px 0;
 
@@ -114,8 +117,9 @@
 
 .MyFrame{
 
-    position: relative;
-    width: 500px;
+    position: absolute;
+    right: 0;
+    width: calc(100% - 50px);
     /* 超出部分隐藏 */
     overflow: hidden;
     margin: auto;
@@ -168,5 +172,74 @@
 
     border: 0;
     height: 50px;
+
+}
+
+.HomePageJumpButton{
+
+    position: relative;
+    margin: 0 10px;
+    padding: 5px;
+    background-color: white;
+    transition: color 0.2s,background-color 0.5s;
+
+}
+
+.HomePageJumpButton:hover{
+
+    background-color: #404040;
+    color: #CCCCCC;
+
+}
+
+#HomePageQnListView{
+
+    position: relative;
+    width: 100%;
+
+}
+
+.HomePageQnLi{
+
+    margin: 10px;
+    padding: 20px;
+    background-color: #CCCCCC;
+    list-style-type:none;
+
+
+}
+
+.HomePageQnLi *{
+
+    font-family: 黑体, serif;
+    position: relative;
+
+}
+
+.HomePageQnLi h1{
+
+    font-size: 30px;
+    margin: 10px;
+    text-align: left;
+
+}
+
+.HomePageQnLi div{
+
+    font-size: 20px;
+    text-align: right;
+    margin: 5px;
+
+}
+
+.HomePageQnLi .HomePageQnUser{
+
+
+
+}
+
+.HomePageQnLi .HomePageQnStartTime{
+
+
 
 }
