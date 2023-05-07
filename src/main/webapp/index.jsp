@@ -31,8 +31,8 @@
         <br>
         <br>
         <br>
-        <h1 class="MyAside-Item" onclick="ClickA('homePageA');ShowQuestionnaireList();AsideBarFit();">主页</h1>
-        <a id="homePageA" href="#MyHomePage" target="HomePage_QnListView"></a>
+        <h1 class="MyAside-Item" onclick="ClickA('homePageA');QuestionNaireListPageUp();AsideBarFit();">主页</h1>
+        <a id="homePageA" href="#MyHomePage"></a>
 
 
     </div>
@@ -114,11 +114,17 @@
             </ul>
 
             <div>
-                <span class="HomePageJumpButton"><<</span>
-                <span class="HomePageJumpButton"><</span>
+
+                <span class="HomePageJumpButton" onclick="QuestionNaireListPageHome()">|<<</span>
+
+                <span class="HomePageJumpButton" onclick="QuestionNaireListPageUp()"><</span>
+
                 <span id="HomePageListPageNum">1</span>
-                <span class="HomePageJumpButton">></span>
-                <span class="HomePageJumpButton">>></span>
+
+                <span class="HomePageJumpButton" onclick="QuestionNaireListPageDn()">></span>
+
+                <span class="HomePageJumpButton" onclick="QuestionNaireListPageEnd()">>>|</span>
+
             </div>
 
         </div>

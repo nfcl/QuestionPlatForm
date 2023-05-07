@@ -48,9 +48,7 @@ public class Servlet_SignUp extends HttpServlet {
 
         try {
 
-            Class.forName("com.mysql.jdbc.Driver");
-
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionplatform", "root", "159357zjy");
+            connection = DruidUtil.getDataSource().getConnection();
             stmt = connection.prepareStatement("select count(*) from user where user_Account=?");
             stmt.setString(1, account);
             rs = stmt.executeQuery();
@@ -77,7 +75,7 @@ public class Servlet_SignUp extends HttpServlet {
             stmt.close();
             connection.close();
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 

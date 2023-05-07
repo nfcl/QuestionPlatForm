@@ -3,6 +3,8 @@ import java.sql.*;
 
 import jakarta.servlet.http.*;
 
+import javax.sql.DataSource;
+
 public class Servlet_SignIn extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -27,23 +29,22 @@ public class Servlet_SignIn extends HttpServlet {
 
         }
 
-        Connection connection = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-
+        //设置输出字符集,否则中文可能会乱码
         response.setCharacterEncoding("utf-8");
-
         response.setContentType("text/html;charset=UTF-8");
 
         try {
 
-            Class.forName("com.mysql.jdbc.Driver");
 
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionplatform", "root", "159357zjy");
-            stmt = connection.prepareStatement("select count(*) from user where user_Account=? and user_Password=?");
+            DataSource ds = DruidUtil.getDataSource();
+            //通过连接池获得连接
+            Connection connection = ds.getConnection();
+            //设置SQL语句
+            PreparedStatement stmt = connection.prepareStatement("select count(*) from user where user_Account=? and user_Password=?");
             stmt.setString(1, account);
             stmt.setString(2, password);
-            rs = stmt.executeQuery();
+            //查询结果
+            ResultSet rs = stmt.executeQuery();
 
             rs.next();
 
@@ -59,7 +60,7 @@ public class Servlet_SignIn extends HttpServlet {
             stmt.close();
             connection.close();
 
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 

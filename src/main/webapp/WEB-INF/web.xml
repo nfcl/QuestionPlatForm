@@ -35,4 +35,14 @@
         <url-pattern>/Servlet_LookThroughQuestionnaires</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Servlet_GetQuestionNaireNum</servlet-name>
+        <servlet-class>Servlet_GetQuestionNaireNum</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_GetQuestionNaireNum</servlet-name>
+        <url-pattern>/Servlet_GetQuestionNaireNum</url-pattern>
+    </servlet-mapping>
+
 </web-app>
