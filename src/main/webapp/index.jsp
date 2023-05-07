@@ -13,8 +13,8 @@
 </div>
 <div class="MyNav">
 
-    <div class="MyNav-Item" onclick="ClickA('SignInA');ResetForm('SignInForm');ResetIFrame('SignInFrame')">登录</div>
-    <div class="MyNav-Item" onclick="ClickA('SignUpA');ResetForm('SignUpForm');ResetIFrame('SignUpFrame')">注册</div>
+    <div class="MyNav-Item" onclick="ClickA('SignInA');ResetForm('SignInForm');">登录</div>
+    <div class="MyNav-Item" onclick="ClickA('SignUpA');ResetForm('SignUpForm');">注册</div>
     <a href="#MySignIn" id="SignInA"></a>
     <a href="#MySignUp" id="SignUpA"></a>
 
@@ -40,48 +40,42 @@
     <div class="MyFrame">
 
         <div align="center" id="MySignIn" class="MyContFrame">
-            <form class="SignInForm" action="Servlet_SignIn" target="SignInframe">
+            <form class="SignInForm">
                 <label class="MySignIn-Label">账号
-                    <input name="account" type="text" class="MyTextArea"/>
+                    <input id="SignInAccount" type="text" class="MyTextArea"/>
                 </label>
                 <br>
                 <br>
                 <label class="MySignIn-Label">密码
-                    <input name="password" type="password" class="MyTextArea"/>
+                    <input id="SignInPassword" type="password" class="MyTextArea"/>
                 </label>
                 <br>
                 <br>
                 <br>
-                <input class="MySignIn-Submit" type="submit" value="登录"/>
-                <br>
-                <br>
-                <iframe id="SignInFrame" class="Myiframe" name="SignInframe"></iframe>
+                <input class="MySignIn-Submit" type="submit" value="登录" onclick="TrySignIn()"/>
             </form>
         </div>
 
         <div align="center" id="MySignUp" class="MyContFrame">
 
-            <form class="SignUpForm" action="Servlet_SignUp" target="SignUpframe">
+            <form class="SignUpForm">
                 <label class="MySignIn-Label">名称
-                    <input name="name" type="text" class="MyTextArea"/>
+                    <input id="SignUpName" type="text" class="MyTextArea"/>
                 </label>
                 <br>
                 <br>
                 <label class="MySignIn-Label">账号
-                    <input name="account" type="text" class="MyTextArea"/>
+                    <input id="SignUpAccount" type="text" class="MyTextArea"/>
                 </label>
                 <br>
                 <br>
                 <label class="MySignIn-Label">密码
-                    <input name="password" type="password" class="MyTextArea"/>
+                    <input id="SignUpPassword" type="password" class="MyTextArea"/>
                 </label>
                 <br>
                 <br>
                 <br>
-                <input class="MySignIn-Submit" type="submit" value="注册"/>
-                <br>
-                <br>
-                <iframe class="Myiframe" id="SignUpFrame" name="SignUpframe"></iframe>
+                <input class="MySignIn-Submit" type="submit" value="注册" onclick="TrySignUp()"/>
             </form>
 
         </div>
@@ -124,6 +118,31 @@
                 <span class="HomePageJumpButton" onclick="QuestionNaireListPageDn()">></span>
 
                 <span class="HomePageJumpButton" onclick="QuestionNaireListPageEnd()">>>|</span>
+
+            </div>
+
+        </div>
+
+        <!--http://localhost:8050/QuestionPlatform_war_exploded/#QuestionNaireInfoPage-->
+
+        <a id="QuestionNaireInfoPageA" href="#QuestionNaireInfoPage"></a>
+
+        <div align="center" id="QuestionNaireInfoPage" class="MyContFrame">
+
+            <div id="QuestionNaireInfoPage-Cont">
+
+                <h1 id="QuestionNaireInfoPage-Title">问卷标题</h1>
+                <div style="display: flex;justify-content: space-between">
+                    <span class="QuestionNaireInfoPage-UserName" style="opacity: 0">问卷发起人名称</span>
+                    <span class="QuestionNaireInfoPage-Time">问卷开始时间——问卷结束时间</span>
+                    <span class="QuestionNaireInfoPage-UserName">问卷发起人名称</span>
+                </div>
+                <hr class="DivideLine">
+                <ul id="QuestionList">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
 
             </div>
 

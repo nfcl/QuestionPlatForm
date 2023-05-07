@@ -53,7 +53,7 @@
     border-width: 5px 0 5px 0;
     border-color: #222222;
     text-align: center;
-    transition: opacity 0.5s,background-color 0.5s,color 0.5s;
+    transition: opacity 0.5s,background-color 0.25s,color 0.2s;
     padding: 10px 0 10px 0;
     margin: 5px 0 5px 0;
 
@@ -181,7 +181,7 @@
     margin: 0 10px;
     padding: 5px;
     background-color: white;
-    transition: color 0.2s,background-color 0.5s;
+    transition: color 0.1s,background-color 0.15s;
 
 }
 
@@ -205,7 +205,19 @@
     padding: 20px;
     background-color: #CCCCCC;
     list-style-type:none;
+    transition: background-color 0.25s;
 
+}
+
+.HomePageQnLi:hover{
+
+    background-color: #222222;
+
+}
+
+.HomePageQnLi:hover *{
+
+    color: #CCCCCC;
 
 }
 
@@ -213,6 +225,7 @@
 
     font-family: 黑体, serif;
     position: relative;
+    transition: color 0.2s;
 
 }
 
@@ -241,5 +254,52 @@
 .HomePageQnLi .HomePageQnStartTime{
 
 
+
+}
+
+#QuestionNaireInfoPage-Cont{
+
+    margin: 20px 20%;
+    background-color: wheat;
+
+}
+
+#QuestionNaireInfoPage-Title{
+
+    font-family: 黑体, serif;
+    padding: 20px;
+
+}
+
+.QuestionNaireInfoPage-UserName{
+
+    font-family: 黑体, serif;
+    text-align: right;
+    padding: 0 30px;
+
+}
+
+.QuestionNaireInfoPage-Time{
+
+    text-align: center;
+
+}
+
+.DivideLine{
+
+    border: 0;
+    border-top: 5px double #7c7c7c;
+
+}
+
+#QuestionList{
+
+    list-style-type: none;
+
+}
+
+#QuestionList li{
+
+    padding: 10px 20px;
 
 }

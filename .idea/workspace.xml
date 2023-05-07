@@ -9,19 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="BUG:读取的列表项下标与预期不符&#10;原因:MYSQL的LIMIT子句的起始下标是0,但写的是1导致列表项下标从1开始了">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/druid-1.2.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DruidUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireNum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/druid.properties" afterDir="false" />
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="启用Druid库作为数据库的连接池&#10;重写了几个Servlet的数据库连接&#10;完善了主页问卷列表的翻页功能，包括（回到第一页，回到上一页，转到下一页，转到最后一页）">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Questionnaire.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/Main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/index.js" afterDir="false" />
     </list>
@@ -220,7 +215,7 @@
       <workItem from="1683368232869" duration="1026000" />
       <workItem from="1683370707477" duration="428000" />
       <workItem from="1683371155648" duration="14203000" />
-      <workItem from="1683427490008" duration="5245000" />
+      <workItem from="1683427490008" duration="23845000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -285,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683378312804</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="启用Druid库作为数据库的连接池&#10;重写了几个Servlet的数据库连接&#10;完善了主页问卷列表的翻页功能，包括（回到第一页，回到上一页，转到下一页，转到最后一页）">
+      <created>1683433128449</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683433128449</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,7 +327,8 @@
     <MESSAGE value="完成了数据库的结构水一下commit" />
     <MESSAGE value="完成了主页问卷列表的展示&#10;后端使用Servlet查询数据库结果&#10;前端使用JS和jQuery将列表DOM标签和当前页码传递到Servlet一并完成对前端页面的修改" />
     <MESSAGE value="BUG:读取的列表项下标与预期不符&#10;原因:MYSQL的LIMIT子句的起始下标是0,但写的是1导致列表项下标从1开始了" />
-    <option name="LAST_COMMIT_MESSAGE" value="BUG:读取的列表项下标与预期不符&#10;原因:MYSQL的LIMIT子句的起始下标是0,但写的是1导致列表项下标从1开始了" />
+    <MESSAGE value="启用Druid库作为数据库的连接池&#10;重写了几个Servlet的数据库连接&#10;完善了主页问卷列表的翻页功能，包括（回到第一页，回到上一页，转到下一页，转到最后一页）" />
+    <option name="LAST_COMMIT_MESSAGE" value="启用Druid库作为数据库的连接池&#10;重写了几个Servlet的数据库连接&#10;完善了主页问卷列表的翻页功能，包括（回到第一页，回到上一页，转到下一页，转到最后一页）" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

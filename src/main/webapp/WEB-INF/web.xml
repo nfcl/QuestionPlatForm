@@ -45,4 +45,14 @@
         <url-pattern>/Servlet_GetQuestionNaireNum</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Servlet_GetQuestionNaireInfo</servlet-name>
+        <servlet-class>Servlet_GetQuestionNaireInfo</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_GetQuestionNaireInfo</servlet-name>
+        <url-pattern>/Servlet_GetQuestionNaireInfo</url-pattern>
+    </servlet-mapping>
+
 </web-app>

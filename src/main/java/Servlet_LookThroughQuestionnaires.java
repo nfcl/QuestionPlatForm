@@ -29,7 +29,6 @@ public class Servlet_LookThroughQuestionnaires extends HttpServlet {
             //查询指定范围内的问卷
             PreparedStatement ps = conn.prepareStatement("SELECT " +
                     "questionnaire.questionnaire_Id," +
-                    "user.user_Id, " +
                     "user.user_Name, " +
                     "questionnaire.questionnaire_Name, " +
                     "questionnaire.questionnaire_Starttime " +
@@ -48,12 +47,10 @@ public class Servlet_LookThroughQuestionnaires extends HttpServlet {
             while(rs.next()){
 
                 out.println(
-                    "<li class=\"HomePageQnLi\">\n" +
-                    "   <h1 class=\"HomePageQnName\">"+rs.getString(4)+"</h1>\n" +
-                    "   <a href="+rs.getInt(1)+"></a>\n" +
-                    "   <div class=\"HomePageQnUser\">"+rs.getString(3)+"</div>\n" +
-                    "   <a href="+rs.getInt(2)+"></a>\n" +
-                    "   <div class=\"HomePageQnStartTime\">"+rs.getDate(5)+"</div>\n" +
+                    "<li class=\"HomePageQnLi\" onclick=\"ClickA('QuestionNaireInfoPageA');ShowQuestionNaireInfo("+rs.getInt(1)+")\">\n" +
+                    "   <h1 class=\"HomePageQnName\">"+rs.getString(3)+"</h1>\n" +
+                    "   <div class=\"HomePageQnUser\">"+rs.getString(2)+"</div>\n" +
+                    "   <div class=\"HomePageQnStartTime\">"+rs.getTimestamp(4)+"</div>\n" +
                     "</li>\n"
                 );
 

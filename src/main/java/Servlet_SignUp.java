@@ -16,28 +16,6 @@ public class Servlet_SignUp extends HttpServlet {
 
         PrintWriter out = response.getWriter();
 
-        if(name == null || name.isEmpty()){
-
-            out.println("<div style='text-align : center'>名称为空！</div>");
-
-            return;
-
-        }
-        else if(account == null || account.isEmpty()){
-
-            out.println("<div style='text-align : center'>账号为空！</div>");
-
-            return;
-
-        }
-        else if(password == null || password.isEmpty()){
-
-            out.println("<div style='text-align : center'>密码为空！</div>");
-
-            return;
-
-        }
-
         Connection connection = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -56,9 +34,13 @@ public class Servlet_SignUp extends HttpServlet {
             rs.next();
 
             if (rs.getInt(1) == 1) {
-                out.println("<div style='text-align : center'>账号已存在！</div>");
+                out.println("FALSE\nReason=账号已存在");
             }
             else{
+
+                rs.close();
+
+                stmt.close();
 
                 stmt = connection.prepareStatement("insert into user (user_Name, user_Account, user_Password) values (?,?,?)");
 
@@ -68,7 +50,25 @@ public class Servlet_SignUp extends HttpServlet {
 
                 stmt.executeUpdate();
 
-                out.println("<div style='text-align : center'>注册成功！</div>");
+                stmt.close();
+
+                stmt = connection.prepareStatement("SELECT user_Id FROM user WHERE user_Account = ?");
+
+                stmt.setString(1,account);
+
+                rs = stmt.executeQuery();
+
+                if(rs.next()){
+
+                    out.println("TRUE\nId="+rs.getString(1));
+
+                }
+                else{
+
+                    out.println("FALSE\nReason=由于未知原因向数据库插入新账号记录失败");
+
+                }
+
             }
 
             rs.close();
