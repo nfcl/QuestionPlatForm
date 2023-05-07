@@ -1,0 +1,26 @@
+#MySignIn{
+
+    padding: 50px 0;
+
+}
+
+.MySignIn-Label{
+
+    font-size: 30px;
+    font-family: 黑体, serif;
+
+}
+
+.MySignIn-Submit{
+
+    font-size: 25px;
+    font-family: 黑体, serif;
+
+}
+
+.MyTextArea{
+
+    resize: none;
+    font-size: 30px;
+
+}

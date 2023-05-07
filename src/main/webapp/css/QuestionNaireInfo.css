@@ -1,0 +1,46 @@
+#QuestionNaireInfoPage-Cont{
+
+    margin: 20px 20%;
+    background-color: wheat;
+
+}
+
+#QuestionNaireInfoPage-Title{
+
+    font-family: 黑体, serif;
+    padding: 20px;
+
+}
+
+.QuestionNaireInfoPage-UserName{
+
+    font-family: 黑体, serif;
+    text-align: right;
+    padding: 0 30px;
+
+}
+
+.QuestionNaireInfoPage-Time{
+
+    text-align: center;
+
+}
+
+.DivideLine{
+
+    border: 0;
+    border-top: 5px double #7c7c7c;
+
+}
+
+#QuestionList{
+
+    list-style-type: none;
+
+}
+
+#QuestionList li{
+
+    padding: 10px 20px;
+
+}

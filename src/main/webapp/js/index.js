@@ -1,3 +1,9 @@
+JumpTo = function (frameName){
+
+    document.getElementById("ContentFrame").src = "./html/"+frameName+".html";
+
+}
+
 ResetForm = function(name){
 
     if(name === 'SignInForm'){
@@ -217,9 +223,9 @@ QuestionNaireListPageEnd = function(){
 
 AsideBarFit = function(){
     //拿到子元素的高度
-    var frame=document.getElementsByClassName("MyFrame")[0].offsetHeight;
+    var frame=document.getElementById("ContentFrame").height;
     //将子元素的高度赋予父元素
-    document.getElementsByClassName("MyAside")[0].style.height = frame + "px";
+    document.getElementById("MyAside").style.height = frame + "px";
 }
 
 ShowQuestionNaireInfo = function(QN_Id){

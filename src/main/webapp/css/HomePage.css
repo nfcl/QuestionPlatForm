@@ -1,0 +1,69 @@
+#HomePageQnListView{
+
+    position: relative;
+    width: 100%;
+
+}
+
+.HomePageQnLi{
+
+    margin: 10px;
+    padding: 20px;
+    background-color: #CCCCCC;
+    list-style-type:none;
+    transition: background-color 0.25s;
+
+}
+
+.HomePageQnLi:hover{
+
+    background-color: #222222;
+
+}
+
+.HomePageQnLi:hover *{
+
+    color: #CCCCCC;
+
+}
+
+.HomePageQnLi *{
+
+    font-family: 黑体, serif;
+    position: relative;
+    transition: color 0.2s;
+
+}
+
+.HomePageQnLi h1{
+
+    font-size: 30px;
+    margin: 10px;
+    text-align: left;
+
+}
+
+.HomePageQnLi div{
+
+    font-size: 20px;
+    text-align: right;
+    margin: 5px;
+
+}
+
+.HomePageJumpButton{
+
+    position: relative;
+    margin: 0 10px;
+    padding: 5px;
+    background-color: white;
+    transition: color 0.1s,background-color 0.15s;
+
+}
+
+.HomePageJumpButton:hover{
+
+    background-color: #404040;
+    color: #CCCCCC;
+
+}
