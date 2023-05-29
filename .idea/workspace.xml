@@ -9,17 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="1.增加了点击主页问卷列表显示问卷详细信息的功能现在它会显示(问卷名称,发起人名称,问卷开始和截至时间,和全部问题的题面和题目类型)&#10;2.重写了注册和登录的逻辑,使用jQuery来提交表单并将登录和注册结果输出再控制台">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/HomePage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/SignIn.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/SignUp.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/HomePage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/SignIn.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/SignUp.html" afterDir="false" />
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="将原来通过CSS方法控制内容页面切换更改为了更方便的iframe切换,现将原来的几个页面分割到几个html文件中(CSS文件也做了分割),但还未完成iframe的页面跳转">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/SignIn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/SignUp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/HomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/HomePage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/SignIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/SignIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/SignUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/SignUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/HomePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/HomePage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/SignIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/SignIn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/SignUp.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/SignUp.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/index.js" afterDir="false" />
     </list>
@@ -31,11 +35,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Class" />
         <option value="Jsp File" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -63,34 +67,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/MYSQL",
-    "list.type.of.created.stylesheet": "CSS",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.41954023",
-    "settings.editor.selected.configurable": "editor.preferences.import"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/JAVA/QuestionPlatform/src/main/webapp/js&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.41954023&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\JAVA\QuestionPlatform\src\main\webapp\js" />
+      <recent name="E:\JAVA\QuestionPlatform\target\QuestionPlatform-1.0-SNAPSHOT\js" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\JAVA\QuestionPlatform\src\main\webapp\html" />
       <recent name="E:\JAVA\QuestionPlatform\src\main\resources" />
@@ -221,7 +229,11 @@
       <workItem from="1683368232869" duration="1026000" />
       <workItem from="1683370707477" duration="428000" />
       <workItem from="1683371155648" duration="14203000" />
-      <workItem from="1683427490008" duration="29123000" />
+      <workItem from="1683427490008" duration="30614000" />
+      <workItem from="1683510163012" duration="23000" />
+      <workItem from="1685280084732" duration="1484000" />
+      <workItem from="1685281668342" duration="8805000" />
+      <workItem from="1685323827172" duration="3519000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -300,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683462660088</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="将原来通过CSS方法控制内容页面切换更改为了更方便的iframe切换,现将原来的几个页面分割到几个html文件中(CSS文件也做了分割),但还未完成iframe的页面跳转">
+      <created>1683467916631</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683467916631</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +361,8 @@
     <MESSAGE value="BUG:读取的列表项下标与预期不符&#10;原因:MYSQL的LIMIT子句的起始下标是0,但写的是1导致列表项下标从1开始了" />
     <MESSAGE value="启用Druid库作为数据库的连接池&#10;重写了几个Servlet的数据库连接&#10;完善了主页问卷列表的翻页功能，包括（回到第一页，回到上一页，转到下一页，转到最后一页）" />
     <MESSAGE value="1.增加了点击主页问卷列表显示问卷详细信息的功能现在它会显示(问卷名称,发起人名称,问卷开始和截至时间,和全部问题的题面和题目类型)&#10;2.重写了注册和登录的逻辑,使用jQuery来提交表单并将登录和注册结果输出再控制台" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.增加了点击主页问卷列表显示问卷详细信息的功能现在它会显示(问卷名称,发起人名称,问卷开始和截至时间,和全部问题的题面和题目类型)&#10;2.重写了注册和登录的逻辑,使用jQuery来提交表单并将登录和注册结果输出再控制台" />
+    <MESSAGE value="将原来通过CSS方法控制内容页面切换更改为了更方便的iframe切换,现将原来的几个页面分割到几个html文件中(CSS文件也做了分割),但还未完成iframe的页面跳转" />
+    <option name="LAST_COMMIT_MESSAGE" value="将原来通过CSS方法控制内容页面切换更改为了更方便的iframe切换,现将原来的几个页面分割到几个html文件中(CSS文件也做了分割),但还未完成iframe的页面跳转" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

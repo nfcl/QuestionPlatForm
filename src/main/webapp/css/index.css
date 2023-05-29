@@ -9,9 +9,14 @@
     color: #CCCCCC;
     background-color: #202020;
     text-align: left;
-    padding: 20px;
     width: 100%;
     position: relative;
+
+}
+
+.MyTitle h1{
+
+    padding: 20px;
 
 }
 

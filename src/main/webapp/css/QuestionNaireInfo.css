@@ -1,6 +1,11 @@
+*{
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    user-select: none;
+}
+
 #QuestionNaireInfoPage-Cont{
 
-    margin: 20px 20%;
     background-color: wheat;
 
 }
