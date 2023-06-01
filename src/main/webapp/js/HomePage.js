@@ -95,16 +95,8 @@ ShowQuestionnaireList = function(PerPageListItemNum,CurrentPage){
 
 ShowQuestionNaireInfo = function(QN_Id){
 
-    $.get(
-        "../Servlet_GetQuestionNaireInfo?QN_Id="+QN_Id,
-        function (data){
-
-            AsideBarFit();
-
-            $("#QuestionNaireInfoPage-Cont").html(data);
-
-        }
-    );
+    window.parent.document.getElementById('ContentFrame').src = './html/QuestionNaireInfo.html?QN_Id='+QN_Id;
+    //$.get("../Servlet_GetQuestionNaireInfo?QN_Id="+QN_Id);
 
 }
 

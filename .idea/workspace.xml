@@ -10,22 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="将原来通过CSS方法控制内容页面切换更改为了更方便的iframe切换,现将原来的几个页面分割到几个html文件中(CSS文件也做了分割),但还未完成iframe的页面跳转">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/SignIn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/SignUp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/QuestionNaireInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/HomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/HomePage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/SignIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/SignIn.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/SignUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/SignUp.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/HomePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/HomePage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/SignIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/SignIn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/SignUp.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/SignUp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,6 +225,8 @@
       <workItem from="1685280084732" duration="1484000" />
       <workItem from="1685281668342" duration="8805000" />
       <workItem from="1685323827172" duration="3519000" />
+      <workItem from="1685357839527" duration="4067000" />
+      <workItem from="1685617995698" duration="12676000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>

@@ -1,4 +1,3 @@
-import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
@@ -10,7 +9,7 @@ import java.sql.SQLException;
 
 public class Servlet_GetQuestionNaireInfo extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         //获得请求的问卷Id
         String QN_Id = request.getParameter("QN_Id");
@@ -23,10 +22,6 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
         try {
 
             conn = DruidUtil.getDataSource().getConnection();
-
-            stmt = null;
-
-            rs = null;
 
             //首先获得问卷的信息
             stmt = conn.prepareStatement("" +
@@ -66,6 +61,8 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
 
             stmt.close();
 
+            out.println("<form action=\"\" method=\"post\">");
+
             out.println("<ul id=\"QuestionList\">");
 
             //获得问卷的所有题目信息
@@ -82,53 +79,125 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
 
             rs = stmt.executeQuery();
 
-            while(rs.next()){
+            int Question_index = 0;
 
-                out.println("   <li>");
+            StringBuilder singleQuestion;
+
+            while(rs.next()){
 
                 int QuestionId = rs.getInt(1);
                 String QuestionCont = rs.getString(2);
                 String QuestionKind = rs.getString(3);
 
-                out.println(QuestionId);
-                out.println("   <br>");
-                out.println(QuestionCont);
-                out.println("   <br>");
-                out.println(QuestionKind);
+                singleQuestion = new StringBuilder("" +
+                        "<li id=\"QuestionNaireInfoPage-Question-" + Question_index + "-" + QuestionId + "\" class=\"QuestionNaireInfoPage-Question\" >" +
+                        "<div class=\"QuestionNaireInfoPage-QuestionTitle\">" + QuestionCont + "</div>" +
+                        "<div class=\"QuestionNaireInfoPage-QuestionAnswerRegion\">"
+                );
 
-                out.println("   </li>");
+                switch(QuestionKind){
+
+                    case "Enter":{
+
+                        singleQuestion.append("<div class=\"QuestionNaireInfoPage-QuestionAnswer-Enter\">");
+
+                        singleQuestion.append("<input class=\"QuestionNaireInfoPage-QuestionAnswer-Enter-textField\" type=\"textFiled\" />");
+
+                        singleQuestion.append("</div>");
+
+                        break;
+                    }
+                    case "Single":{
+
+                        int SingleIndex = 0;
+
+                        ResultSet SingleRs = null;
+                        PreparedStatement SingleStmt = null;
+
+                        SingleStmt = conn.prepareStatement("" +
+                                "SELECT questionoption.question_Id, questionoption.option_Cont " +
+                                "FROM questionoption " +
+                                "WHERE questionoption.question_Id = ?"
+                        );
+
+                        SingleStmt.setInt(1,QuestionId);
+
+                        SingleRs = SingleStmt.executeQuery();
+
+                        while(SingleRs.next()){
+
+                            singleQuestion.append("<div class=\"QuestionNaireInfoPage-QuestionAnswer-Single\">");
+
+                            singleQuestion.append("<input name=\"QuestionNaireInfoPage-QuestionAnswer-Single-").append(QuestionId).append("\" id=\"QuestionNaireInfoPage-QuestionAnswer-Single-").append(SingleIndex).append("-").append(SingleRs.getString(1)).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Single-Radio\" type=\"radio\" />").append(SingleRs.getString(2));
+
+                            singleQuestion.append("</div>");
+
+                            SingleIndex += 1;
+
+                        }
+
+                        SingleRs.close();
+                        SingleStmt.close();
+
+                        break;
+                    }
+                    case "Multiple":{
+
+                        int MultipleIndex = 0;
+
+                        ResultSet MultipleRs = null;
+                        PreparedStatement MultipleStmt = null;
+
+                        MultipleStmt = conn.prepareStatement("" +
+                                "SELECT questionoption.question_Id, questionoption.option_Cont " +
+                                "FROM questionoption " +
+                                "WHERE questionoption.question_Id = ?"
+                        );
+
+                        MultipleStmt.setInt(1,QuestionId);
+
+                        MultipleRs = MultipleStmt.executeQuery();
+
+                        while(MultipleRs.next()){
+
+                            singleQuestion.append("<div class=\"QuestionNaireInfoPage-QuestionAnswer-Multiple\">");
+
+                            singleQuestion.append("<input id=\"QuestionNaireInfoPage-QuestionAnswer-Single-").append(MultipleIndex).append("-").append(MultipleRs.getString(1)).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Multiple-CheckBox\" type=\"checkBox\" />").append(MultipleRs.getString(2));
+
+                            singleQuestion.append("</div>");
+
+                            MultipleIndex += 1;
+
+                        }
+
+                        MultipleRs.close();
+                        MultipleStmt.close();
+
+                        break;
+                    }
+
+                }
+
+                singleQuestion.append("</div></li>");
+
+                out.println(singleQuestion);
+
+                Question_index += 1;
 
             }
 
             out.println("</ul>");
 
+            out.println("<input type=\"submit\" value=\"提交\">");
+
+            out.println("</form>");
+
+            rs.close();
+            stmt.close();
+            conn.close();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        } finally {
-
-            try {
-
-                if(rs != null){
-
-                    rs.close();
-
-                }
-
-                if(stmt != null) {
-
-                    stmt.close();
-                }
-
-                if(conn != null){
-
-                    conn.close();
-
-                }
-
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
         }
 
     }
