@@ -49,3 +49,36 @@
     padding: 10px 20px;
 
 }
+
+.QuestionNaireInfoPage-QuestionTitle{
+
+    padding: 0 5%;
+    text-align: left;
+    color: #1e0000;
+
+}
+
+.QuestionNaireInfoPage-QuestionAnswerRegion{
+
+    padding: 0 0 0 8%;
+
+}
+
+.QuestionNaireInfoPage-QuestionAnswer-Enter-textField{
+
+    margin: 20px 0;
+    width: 100%;
+
+}
+
+.QuestionNaireInfoPage-QuestionAnswer-Single-Radio{
+
+    margin: 20px 10px;
+
+}
+
+.QuestionNaireInfoPage-QuestionAnswer-Multiple-CheckBox{
+
+    margin: 20px 10px;
+
+}

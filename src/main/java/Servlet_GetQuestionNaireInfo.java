@@ -87,6 +87,8 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
 
             StringBuilder singleQuestion;
 
+            int QuestionIndex = 1;
+
             while (rs.next()) {
 
                 int QuestionId = rs.getInt(1);
@@ -95,8 +97,8 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
 
                 singleQuestion = new StringBuilder("" +
                         "<li name=\"QuestionNaireInfoPage-Question-" + QuestionId + "\" class=\"QuestionNaireInfoPage-Question\" >" +
-                        "<div class=\"QuestionNaireInfoPage-QuestionTitle\">" + QuestionCont + "</div>" +
-                        "<div class=\"QuestionNaireInfoPage-QuestionAnswerRegion\">"
+                        "<div class=\"QuestionNaireInfoPage-QuestionTitle\">" + QuestionIndex + ". " + QuestionCont + "</div>" +
+                            "<div class=\"QuestionNaireInfoPage-QuestionAnswerRegion\">"
                 );
 
                 switch (QuestionKind) {
@@ -128,9 +130,15 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
 
                         while (SingleRs.next()) {
 
-                            singleQuestion.append("<div class=\"QuestionNaireInfoPage-QuestionAnswer-Single\">");
+                            singleQuestion.append("<div class=\"QuestionNaireInfoPage-QuestionAnswer-Single\" align=\"left\">");
 
-                            singleQuestion.append("<input name=\"Answer-").append(QuestionId).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Single-Radio\" type=\"radio\" value=\"").append(SingleRs.getInt(1)).append("\" />").append(SingleRs.getString(2));
+                            singleQuestion.append("<label class=\"QuestionNaireInfoPage-QuestionAnswer-Single-Label\">");
+
+                            singleQuestion.append("<input name=\"Answer-").append(QuestionId).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Single-Radio\" type=\"radio\" value=\"").append(SingleRs.getInt(1)).append("\" />");
+
+                            singleQuestion.append(SingleRs.getString(2));
+
+                            singleQuestion.append("</label>");
 
                             singleQuestion.append("</div>");
 
@@ -158,9 +166,15 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
 
                         while (MultipleRs.next()) {
 
-                            singleQuestion.append("<div class=\"QuestionNaireInfoPage-QuestionAnswer-Multiple\">");
+                            singleQuestion.append("<div class=\"QuestionNaireInfoPage-QuestionAnswer-Multiple\" align=\"left\">");
 
-                            singleQuestion.append("<input name=\"Answer-").append(QuestionId).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Multiple-CheckBox\" type=\"checkBox\" value=\"").append(MultipleRs.getString(1)).append("\" />").append(MultipleRs.getString(2));
+                            singleQuestion.append("<label class=\"QuestionNaireInfoPage-QuestionAnswer-Multiple-Label\">");
+
+                            singleQuestion.append("<input name=\"Answer-").append(QuestionId).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Multiple-CheckBox\" type=\"checkBox\" value=\"").append(MultipleRs.getString(1)).append("\" />");
+
+                            singleQuestion.append(MultipleRs.getString(2));
+
+                            singleQuestion.append("</label>");
 
                             singleQuestion.append("</div>");
 
@@ -177,6 +191,8 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
                 singleQuestion.append("</div></li>");
 
                 out.println(singleQuestion);
+
+                QuestionIndex+=1;
 
             }
 

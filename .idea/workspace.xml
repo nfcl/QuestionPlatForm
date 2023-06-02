@@ -9,14 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="问卷填写页面完善&#10;由Servlet链接数据库获取问卷题目并生成问卷表单">
-      <change afterPath="$PROJECT_DIR$/src/main/java/AnswerNaire.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_PostAnswerNaire.java" afterDir="false" />
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="完成向数据库提交答卷信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +226,7 @@
       <workItem from="1685617995698" duration="12799000" />
       <workItem from="1685667408118" duration="2373000" />
       <workItem from="1685670383908" duration="4829000" />
-      <workItem from="1685677875809" duration="17708000" />
+      <workItem from="1685677875809" duration="21827000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -323,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685638188954</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="完成向数据库提交答卷信息">
+      <created>1685718128206</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685718128206</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -367,7 +370,8 @@
     <MESSAGE value="1.增加了点击主页问卷列表显示问卷详细信息的功能现在它会显示(问卷名称,发起人名称,问卷开始和截至时间,和全部问题的题面和题目类型)&#10;2.重写了注册和登录的逻辑,使用jQuery来提交表单并将登录和注册结果输出再控制台" />
     <MESSAGE value="将原来通过CSS方法控制内容页面切换更改为了更方便的iframe切换,现将原来的几个页面分割到几个html文件中(CSS文件也做了分割),但还未完成iframe的页面跳转" />
     <MESSAGE value="问卷填写页面完善&#10;由Servlet链接数据库获取问卷题目并生成问卷表单" />
-    <option name="LAST_COMMIT_MESSAGE" value="问卷填写页面完善&#10;由Servlet链接数据库获取问卷题目并生成问卷表单" />
+    <MESSAGE value="完成向数据库提交答卷信息" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成向数据库提交答卷信息" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
