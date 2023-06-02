@@ -9,14 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="将原来通过CSS方法控制内容页面切换更改为了更方便的iframe切换,现将原来的几个页面分割到几个html文件中(CSS文件也做了分割),但还未完成iframe的页面跳转">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/QuestionNaireInfo.js" afterDir="false" />
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="问卷填写页面完善&#10;由Servlet链接数据库获取问卷题目并生成问卷表单">
+      <change afterPath="$PROJECT_DIR$/src/main/java/AnswerNaire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_PostAnswerNaire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +26,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
         <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,6 +57,7 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
@@ -77,7 +78,7 @@
     &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.41954023&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -226,7 +227,10 @@
       <workItem from="1685281668342" duration="8805000" />
       <workItem from="1685323827172" duration="3519000" />
       <workItem from="1685357839527" duration="4067000" />
-      <workItem from="1685617995698" duration="12676000" />
+      <workItem from="1685617995698" duration="12799000" />
+      <workItem from="1685667408118" duration="2373000" />
+      <workItem from="1685670383908" duration="4829000" />
+      <workItem from="1685677875809" duration="17708000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -312,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683467916631</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="问卷填写页面完善&#10;由Servlet链接数据库获取问卷题目并生成问卷表单">
+      <created>1685638188954</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685638188954</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,13 +366,15 @@
     <MESSAGE value="启用Druid库作为数据库的连接池&#10;重写了几个Servlet的数据库连接&#10;完善了主页问卷列表的翻页功能，包括（回到第一页，回到上一页，转到下一页，转到最后一页）" />
     <MESSAGE value="1.增加了点击主页问卷列表显示问卷详细信息的功能现在它会显示(问卷名称,发起人名称,问卷开始和截至时间,和全部问题的题面和题目类型)&#10;2.重写了注册和登录的逻辑,使用jQuery来提交表单并将登录和注册结果输出再控制台" />
     <MESSAGE value="将原来通过CSS方法控制内容页面切换更改为了更方便的iframe切换,现将原来的几个页面分割到几个html文件中(CSS文件也做了分割),但还未完成iframe的页面跳转" />
-    <option name="LAST_COMMIT_MESSAGE" value="将原来通过CSS方法控制内容页面切换更改为了更方便的iframe切换,现将原来的几个页面分割到几个html文件中(CSS文件也做了分割),但还未完成iframe的页面跳转" />
+    <MESSAGE value="问卷填写页面完善&#10;由Servlet链接数据库获取问卷题目并生成问卷表单" />
+    <option name="LAST_COMMIT_MESSAGE" value="问卷填写页面完善&#10;由Servlet链接数据库获取问卷题目并生成问卷表单" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="DruidUtil" />
         <watch expression="dataSource" />
+        <watch expression="enters.get(i).AnswerCont" />
       </configuration>
     </watches-manager>
   </component>

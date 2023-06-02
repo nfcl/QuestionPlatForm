@@ -17,8 +17,11 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         ResultSet rs = null;
+
         PreparedStatement stmt = null;
+
         Connection conn = null;
+
         try {
 
             conn = DruidUtil.getDataSource().getConnection();
@@ -51,7 +54,8 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
                         "<hr class=\"DivideLine\">"
                 );
 
-            } else {
+            }
+            else {
 
                 throw new IOException("无效的问卷ID");
 
@@ -61,78 +65,74 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
 
             stmt.close();
 
-            out.println("<form action=\"\" method=\"post\">");
+            out.println("<form action=\"../Servlet_PostAnswerNaire\" method=\"get\">");
+
+            out.println("<input type=\"hidden\" name=\"QuestionNaireId\" value=\""+QN_Id+"\">");
 
             out.println("<ul id=\"QuestionList\">");
 
             //获得问卷的所有题目信息
             stmt = conn.prepareStatement("" +
-                "SELECT " +
+                    "SELECT " +
                     "question_Id," +
                     "question_Cont," +
                     "question_Kind " +
-                "FROM question " +
-                "WHERE questionnaire_Id = ?"
+                    "FROM question " +
+                    "WHERE questionnaire_Id = ?"
             );
 
-            stmt.setString(1,QN_Id);
+            stmt.setString(1, QN_Id);
 
             rs = stmt.executeQuery();
 
-            int Question_index = 0;
-
             StringBuilder singleQuestion;
 
-            while(rs.next()){
+            while (rs.next()) {
 
                 int QuestionId = rs.getInt(1);
                 String QuestionCont = rs.getString(2);
                 String QuestionKind = rs.getString(3);
 
                 singleQuestion = new StringBuilder("" +
-                        "<li id=\"QuestionNaireInfoPage-Question-" + Question_index + "-" + QuestionId + "\" class=\"QuestionNaireInfoPage-Question\" >" +
+                        "<li name=\"QuestionNaireInfoPage-Question-" + QuestionId + "\" class=\"QuestionNaireInfoPage-Question\" >" +
                         "<div class=\"QuestionNaireInfoPage-QuestionTitle\">" + QuestionCont + "</div>" +
                         "<div class=\"QuestionNaireInfoPage-QuestionAnswerRegion\">"
                 );
 
-                switch(QuestionKind){
+                switch (QuestionKind) {
 
-                    case "Enter":{
+                    case "Enter": {
 
                         singleQuestion.append("<div class=\"QuestionNaireInfoPage-QuestionAnswer-Enter\">");
 
-                        singleQuestion.append("<input class=\"QuestionNaireInfoPage-QuestionAnswer-Enter-textField\" type=\"textFiled\" />");
+                        singleQuestion.append("<input name=\"Answer-").append(QuestionId).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Enter-textField\" type=\"textFiled\" />");
 
                         singleQuestion.append("</div>");
 
                         break;
                     }
-                    case "Single":{
-
-                        int SingleIndex = 0;
+                    case "Single": {
 
                         ResultSet SingleRs = null;
                         PreparedStatement SingleStmt = null;
 
                         SingleStmt = conn.prepareStatement("" +
-                                "SELECT questionoption.question_Id, questionoption.option_Cont " +
+                                "SELECT questionoption.option_Id, questionoption.option_Cont " +
                                 "FROM questionoption " +
                                 "WHERE questionoption.question_Id = ?"
                         );
 
-                        SingleStmt.setInt(1,QuestionId);
+                        SingleStmt.setInt(1, QuestionId);
 
                         SingleRs = SingleStmt.executeQuery();
 
-                        while(SingleRs.next()){
+                        while (SingleRs.next()) {
 
                             singleQuestion.append("<div class=\"QuestionNaireInfoPage-QuestionAnswer-Single\">");
 
-                            singleQuestion.append("<input name=\"QuestionNaireInfoPage-QuestionAnswer-Single-").append(QuestionId).append("\" id=\"QuestionNaireInfoPage-QuestionAnswer-Single-").append(SingleIndex).append("-").append(SingleRs.getString(1)).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Single-Radio\" type=\"radio\" />").append(SingleRs.getString(2));
+                            singleQuestion.append("<input name=\"Answer-").append(QuestionId).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Single-Radio\" type=\"radio\" value=\"").append(SingleRs.getInt(1)).append("\" />").append(SingleRs.getString(2));
 
                             singleQuestion.append("</div>");
-
-                            SingleIndex += 1;
 
                         }
 
@@ -141,32 +141,28 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
 
                         break;
                     }
-                    case "Multiple":{
-
-                        int MultipleIndex = 0;
+                    case "Multiple": {
 
                         ResultSet MultipleRs = null;
                         PreparedStatement MultipleStmt = null;
 
                         MultipleStmt = conn.prepareStatement("" +
-                                "SELECT questionoption.question_Id, questionoption.option_Cont " +
+                                "SELECT questionoption.option_Id, questionoption.option_Cont " +
                                 "FROM questionoption " +
                                 "WHERE questionoption.question_Id = ?"
                         );
 
-                        MultipleStmt.setInt(1,QuestionId);
+                        MultipleStmt.setInt(1, QuestionId);
 
                         MultipleRs = MultipleStmt.executeQuery();
 
-                        while(MultipleRs.next()){
+                        while (MultipleRs.next()) {
 
                             singleQuestion.append("<div class=\"QuestionNaireInfoPage-QuestionAnswer-Multiple\">");
 
-                            singleQuestion.append("<input id=\"QuestionNaireInfoPage-QuestionAnswer-Single-").append(MultipleIndex).append("-").append(MultipleRs.getString(1)).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Multiple-CheckBox\" type=\"checkBox\" />").append(MultipleRs.getString(2));
+                            singleQuestion.append("<input name=\"Answer-").append(QuestionId).append("\" class=\"QuestionNaireInfoPage-QuestionAnswer-Multiple-CheckBox\" type=\"checkBox\" value=\"").append(MultipleRs.getString(1)).append("\" />").append(MultipleRs.getString(2));
 
                             singleQuestion.append("</div>");
-
-                            MultipleIndex += 1;
 
                         }
 
@@ -181,8 +177,6 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
                 singleQuestion.append("</div></li>");
 
                 out.println(singleQuestion);
-
-                Question_index += 1;
 
             }
 
@@ -201,4 +195,5 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
         }
 
     }
+
 }

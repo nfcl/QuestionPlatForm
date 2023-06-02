@@ -37,6 +37,8 @@ public class Servlet_SignIn extends HttpServlet {
 
             if(rs.next()){
 
+                request.getSession().setAttribute("User_Id",rs.getString(1));
+
                 out.println(String.format("Id:%s&Name:%s",rs.getString(1),rs.getString(2)));
 
             }

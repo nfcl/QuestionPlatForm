@@ -55,4 +55,14 @@
         <url-pattern>/Servlet_GetQuestionNaireInfo</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Servlet_PostAnswerNaire</servlet-name>
+        <servlet-class>Servlet_PostAnswerNaire</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_PostAnswerNaire</servlet-name>
+        <url-pattern>/Servlet_PostAnswerNaire</url-pattern>
+    </servlet-mapping>
+
 </web-app>
