@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +8,20 @@
     <script src="./js/index.js"></script>
 </head>
 <body>
-<div class="MyTitle">
+<div id="MyTitle">
     <h1>Cierra —— 一个基于JSP的问卷发布及填写网站</h1>
 </div>
-<div class="MyNav">
+<div id="MyNav">
 
-    <div class="MyNav-Item" onclick="JumpTo('SignIn')">登录</div>
-    <div class="MyNav-Item" onclick="JumpTo('SignUp')">注册</div>
+    <div id="MyNav-LogOff">
+        <div class="MyNav-Item" onclick="JumpTo('SignIn')">登录</div>
+        <div class="MyNav-Item" onclick="JumpTo('SignUp')">注册</div>
+    </div>
+
+    <div id="MyNav-LogOn">
+        <div class="MyNav-Item" onclick="LogOff()">退出</div>
+        <div id="LogOn-UserName" class="MyNav-Item">User_Name</div>
+    </div>
 
 </div>
 
@@ -34,7 +42,7 @@
 
     <iframe
             name="ifd" id="ContentFrame" frameborder="0"
-            onload="this.height=ifd.document.body.scrollHeight;AsideBarFit();"
+            onload="this.height=window.innerHeight-document.getElementById('MyNav').clientHeight-document.getElementById('MyTitle').clientHeight;document.getElementById('MyAside').style.height=this.height+'px';"
     ></iframe>
 
     <script>

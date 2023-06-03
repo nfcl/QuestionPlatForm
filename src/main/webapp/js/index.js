@@ -26,9 +26,20 @@ ClickA = function (name){
 
 }
 
-AsideBarFit = function(){
-    //拿到子元素的高度
-    var frame=document.getElementById("ContentFrame").height;
-    //将子元素的高度赋予父元素
-    document.getElementById("MyAside").style.height = frame + "px";
+LogOn = function (name){
+
+    $("#MyNav-LogOn").removeClass('MyNav-Hide');
+    $("#MyNav-LogOff").addClass('MyNav-Hide');
+
+    $("#LogOn-UserName").html(name);
+
+}
+
+LogOff = function (){
+
+    $("#MyNav-LogOn").addClass('MyNav-Hide');
+    $("#MyNav-LogOff").removeClass('MyNav-Hide');
+
+    sessionStorage.removeItem("User_Id");
+
 }

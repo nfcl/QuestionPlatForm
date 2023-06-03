@@ -30,9 +30,7 @@ Init = function () {
 }
 
 AsideBarFit = function(){
+
     window.parent.document.getElementById("ContentFrame").onload(undefined);
-    //拿到子元素的高度
-    var frame=window.parent.document.getElementById("ContentFrame").height;
-    //将子元素的高度赋予父元素
-    window.parent.document.getElementById("MyAside").style.height = frame + "px";
+
 }

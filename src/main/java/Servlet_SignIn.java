@@ -39,12 +39,12 @@ public class Servlet_SignIn extends HttpServlet {
 
                 request.getSession().setAttribute("User_Id",rs.getString(1));
 
-                out.println(String.format("Id:%s&Name:%s",rs.getString(1),rs.getString(2)));
+                out.println(rs.getString(2));
 
             }
             else{
 
-                out.println("-1");
+                out.println("");
 
             }
 

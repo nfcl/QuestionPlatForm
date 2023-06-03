@@ -4,7 +4,7 @@
     user-select: none;
 }
 
-.MyTitle {
+#MyTitle {
 
     color: #CCCCCC;
     background-color: #202020;
@@ -14,7 +14,7 @@
 
 }
 
-.MyTitle h1{
+#MyTitle h1{
 
     padding: 20px;
 
@@ -91,7 +91,7 @@
 
 }
 
-.MyNav{
+#MyNav{
 
     background-color: #404040;
     overflow: hidden;
@@ -113,6 +113,15 @@
 
     background-color: #CCCCCC;
     color: #404040;
+
+}
+
+.MyNav-Hide .MyNav-Item {
+
+    width: 0;
+    height: 0;
+    padding: 0;
+    opacity: 0;
 
 }
 

@@ -86,8 +86,13 @@ ShowQuestionnaireList = function(PerPageListItemNum,CurrentPage){
 
     $.get("../Servlet_LookThroughQuestionnaires?FirstIndex="+firstItemIndex+"&PerPageListItemNum="+PerPageListItemNum,
         function(data){
+
             $("#HomePageQnListView").html(data);
+
             document.getElementById("HomePageListPageNum").textContent = CurrentPage;
+
+            AsideBarFit();
+
         }
     );
 
@@ -96,7 +101,6 @@ ShowQuestionnaireList = function(PerPageListItemNum,CurrentPage){
 ShowQuestionNaireInfo = function(QN_Id){
 
     window.parent.document.getElementById('ContentFrame').src = './html/QuestionNaireInfo.html?QN_Id='+QN_Id;
-    //$.get("../Servlet_GetQuestionNaireInfo?QN_Id="+QN_Id);
 
 }
 
@@ -107,8 +111,7 @@ JumpTo = function (frameName){
 }
 
 AsideBarFit = function(){
-    //拿到子元素的高度
-    var frame=window.parent.document.getElementById("ContentFrame").height;
-    //将子元素的高度赋予父元素
-    window.parent.document.getElementById("MyAside").style.height = frame + "px";
+
+    window.parent.document.getElementById("ContentFrame").onload(undefined);
+
 }

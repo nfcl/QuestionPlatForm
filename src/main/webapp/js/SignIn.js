@@ -17,10 +17,10 @@ TrySignIn = function (){
             null,
             function(info){
 
-                //这里应该传回一个字符串形式为 Id:***&Name:*** 即用户ID和名称
+                //这里应该传回一个字符串为用户名称
                 //如果info为空则登录失败
 
-                if(info === "-1"){
+                if(info==null || info === ""){
 
                     //登录失败
 
@@ -29,16 +29,12 @@ TrySignIn = function (){
 
                     //登录成功
 
-                    let Id = info.match(/Id:(\S*)&Name:/);
+                    window.parent.localStorage.setItem("Cierra_Account",Account);
+                    window.parent.localStorage.setItem("Cierra_Password",Password);
 
-                    let Name = info.match(/&Name:(\S*)/);
-
-                    window.localStorage.setItem("Cierra_Account",Account);
-                    window.localStorage.setItem("Cierra_Password",Password);
+                    window.parent.LogOn(info);
 
                 }
-
-                console.log(info);
 
             }
 

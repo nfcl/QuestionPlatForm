@@ -9,10 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="完成向数据库提交答卷信息">
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="完善答卷填写页面的外观">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_PostAnswerNaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_PostAnswerNaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/QuestionNaireInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/QuestionNaireInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/SignIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +232,8 @@
       <workItem from="1685617995698" duration="12799000" />
       <workItem from="1685667408118" duration="2373000" />
       <workItem from="1685670383908" duration="4829000" />
-      <workItem from="1685677875809" duration="21827000" />
+      <workItem from="1685677875809" duration="23063000" />
+      <workItem from="1685752755492" duration="4935000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -326,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685718128206</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="完善答卷填写页面的外观">
+      <created>1685722883228</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1685722883228</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +385,8 @@
     <MESSAGE value="将原来通过CSS方法控制内容页面切换更改为了更方便的iframe切换,现将原来的几个页面分割到几个html文件中(CSS文件也做了分割),但还未完成iframe的页面跳转" />
     <MESSAGE value="问卷填写页面完善&#10;由Servlet链接数据库获取问卷题目并生成问卷表单" />
     <MESSAGE value="完成向数据库提交答卷信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成向数据库提交答卷信息" />
+    <MESSAGE value="完善答卷填写页面的外观" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善答卷填写页面的外观" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
