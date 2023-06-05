@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/QuestionNaireList.css">
+    <script src="../js/QuestionNaireList.js"></script>
+</head>
+<body>
+<script>
+
+    QuestionNaireListPageHome();
+
+</script>
+<div align="center" id="MyHomePage">
+
+    <ul id="QuestionNaireListView">
+
+        <li class="QuestionNaireListView-li">
+
+            <h1 class="QuestionNaireListView-li-Title">问卷标题</h1>
+            <div class="QuestionNaireListView-li-User">问卷发起人</div>
+            <div class="QuestionNaireListView-li-StartTime">问卷开始时间</div>
+
+        </li>
+
+    </ul>
+
+    <div>
+
+        <span class="HomePageJumpButton" onclick="QuestionNaireListPageHome()">|<<</span>
+
+        <span class="HomePageJumpButton" onclick="QuestionNaireListPageUp()"><</span>
+
+        <span id="HomePageListPageNum">1</span>
+
+        <span class="HomePageJumpButton" onclick="QuestionNaireListPageDn()">></span>
+
+        <span class="HomePageJumpButton" onclick="QuestionNaireListPageEnd()">>>|</span>
+
+    </div>
+
+</div>
+</body>
+</html>

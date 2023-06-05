@@ -65,4 +65,44 @@
         <url-pattern>/Servlet_PostAnswerNaire</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Servlet_GetUserList</servlet-name>
+        <servlet-class>Servlet_GetUserList</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_GetUserList</servlet-name>
+        <url-pattern>/Servlet_GetUserList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet_DropUser</servlet-name>
+        <servlet-class>Servlet_DropUser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_DropUser</servlet-name>
+        <url-pattern>/Servlet_DropUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet_CreateQuestionNaire</servlet-name>
+        <servlet-class>Servlet_CreateQuestionNaire</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_CreateQuestionNaire</servlet-name>
+        <url-pattern>/Servlet_CreateQuestionNaire</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet_TryUseSessionSingIn</servlet-name>
+        <servlet-class>Servlet_TryUseSessionSingIn</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_TryUseSessionSingIn</servlet-name>
+        <url-pattern>/Servlet_TryUseSessionSingIn</url-pattern>
+    </servlet-mapping>
+
 </web-app>

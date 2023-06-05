@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.CreateNaire-Title-Input{
+
+    text-align: center;
+    width: 50%;
+    margin: 20px 0;
+
+}
+
+.QuestionNaire-Question{
+
+    display: inline;
+
+}
+
+.QuestionNaire-Question-Title-Input{
+
+    width: 80%;
+    margin: 10px 0;
+
+}
+
+.QuestionNaire-Question-Enter{
+
+    display: block;
+    margin: 5px 0;
+
+}
+
+.QuestionNaire-Question-Radio-Label{
+
+    display: block;
+    margin: 5px 0;
+
+}
+
+.QuestionNaire-Question-Radio-Options{
+
+    list-style-type: none;
+
+}
+
+.QuestionNaire-Question-RadioCont-Radio{
+
+}
+
+
+.QuestionNaire-Question-RadioCont-Input{
+
+    width: 70%;
+    margin-right: 5%;
+
+}
+
+.QuestionNaire-Question-Check-Label{
+
+    display: block;
+    margin: 5px 0;
+
+}
+
+.QuestionNaire-Question-CheckCont-Check{
+
+}
+
+.QuestionNaire-Question-Check-Options{
+
+    list-style-type: none;
+
+}
+
+
+.QuestionNaire-Question-CheckCont-Input{
+
+    width: 70%;
+    margin-right: 5%;
+
+}
+
+#Question_List{
+
+    list-style-type:demical;
+    width:100%;
+
+}
+
+#Question_List li{
+
+    list-style-position: inside;
+
+}
+
+.QuestionNaire-Add-Button{
+
+    margin: 10px 15px;
+
+}

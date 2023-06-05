@@ -87,7 +87,7 @@ ShowQuestionnaireList = function(PerPageListItemNum,CurrentPage){
     $.get("../Servlet_LookThroughQuestionnaires?FirstIndex="+firstItemIndex+"&PerPageListItemNum="+PerPageListItemNum,
         function(data){
 
-            $("#HomePageQnListView").html(data);
+            $("#QuestionNaireListView").html(data);
 
             document.getElementById("HomePageListPageNum").textContent = CurrentPage;
 

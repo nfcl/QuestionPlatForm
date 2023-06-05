@@ -18,12 +18,28 @@
         <div class="MyNav-Item" onclick="JumpTo('SignUp')">注册</div>
     </div>
 
-    <div id="MyNav-LogOn">
+    <div id="MyNav-LogOn" class="MyNav-Hide">
         <div class="MyNav-Item" onclick="LogOff()">退出</div>
         <div id="LogOn-UserName" class="MyNav-Item">User_Name</div>
     </div>
 
 </div>
+
+<script>
+
+    $.get("./Servlet_TryUseSessionSingIn",
+        function (data) {
+
+            if (data != null && data !== "") {
+
+                LogOn(data);
+
+            }
+
+        }
+    );
+
+</script>
 
 <div class="MyCont">
 
@@ -36,13 +52,25 @@
         <br>
         <br>
         <br>
-        <h1 class="MyAside-Item" onclick="JumpTo('HomePage')">主页</h1>
+        <div class="MyAside-Group">
+            <h1 class="MyAside-GroupTitle">主页</h1>
+            <h2 class="MyAside-Item" onclick="JumpTo('QuestionNaireList')">查看问卷</h2>
+            <h2 class="MyAside-Item" onclick="JumpTo('CreateNewQuestionNaire')">创建问卷</h2>
+        </div>
+        <div class="MyAside-Group">
+            <h1 class="MyAside-GroupTitle">管理员</h1>
+            <h2 class="MyAside-Item" onclick="JumpTo('UserManager')">用户</h2>
+            <h2 class="MyAside-Item">问卷</h2>
+            <h2 class="MyAside-Item">答卷</h2>
+        </div>
 
     </div>
 
     <iframe
+
             name="ifd" id="ContentFrame" frameborder="0"
             onload="this.height=window.innerHeight-document.getElementById('MyNav').clientHeight-document.getElementById('MyTitle').clientHeight;document.getElementById('MyAside').style.height=this.height+'px';"
+
     ></iframe>
 
     <script>

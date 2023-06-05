@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/CreateNewQuestionNaire.css">
+    <script src="../js/CreateNewQuestionNaire.js"></script>
+</head>
+<body>
+
+    <form action="../Servlet_CreateQuestionNaire" method="get">
+        <div align="center">
+            <label>
+                <input name="QuestionNaire-Title" class="CreateNaire-Title-Input" type="text" placeholder="问卷标题" required>
+            </label>
+            <hr class="DivideLine">
+            <input name="QuestionNum" id="QuestionNum" type="hidden" value="0">
+            <ol id="Question_List">
+                <!--
+                <li>
+                    <div class="QuestionNaire-Question">
+                        <input class="QuestionNaire-Question-Kind" type="hidden" value="Enter">
+                        <label>
+                            <input name="QuestionNaire-Question-Title" class="QuestionNaire-Question-Title-Input" type="text" placeholder="问题内容">
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="QuestionNaire-Question">
+                        <input class="QuestionNaire-Question-Kind" type="hidden" value="Single">
+                        <label>
+                            <input name="QuestionNaire-Question-Title" class="QuestionNaire-Question-Title-Input" type="text" placeholder="问题内容">
+                        </label>
+                        <ul class="QuestionNaire-Question-Radio-Options">
+                        </ul>
+                        <input class="QuestionNaire-Question-Radio-OptionInsert-Button" type="button" onclick="console.log(1);InsertOption_Radio(1);" value="添加新单选项">
+                    </div>
+                </li>
+                <li>
+                    <div class="QuestionNaire-Question">
+                        <input class="QuestionNaire-Question-Kind" type="hidden" value="Multiple">
+                        <label>
+                            <input name="QuestionNaire-Question-Title" class="QuestionNaire-Question-Title-Input" type="text" placeholder="问题内容">
+                        </label>
+                        <ul class="QuestionNaire-Question-Check-Options">
+                        </ul>
+                        <input class="QuestionNaire-Question-Multiple-OptionInsert-Button" type="button" onclick="console.log(2);InsertOption_Multiple(2);" value="添加新多选项">
+                    </div>
+                </li>
+                -->
+            </ol>
+            <input class="QuestionNaire-Add-Button" type="button" onclick="InsertQuestion_Enter()" value="插入一个输入问题">
+            <input class="QuestionNaire-Add-Button" type="button" onclick="InsertQuestion_Single()" value="插入一个单选问题">
+            <input class="QuestionNaire-Add-Button" type="button" onclick="InsertQuestion_Multiple()" value="插入一个多选问题">
+            <input class="QuestionNaire-Add-Button" style="display: block;" type="submit" value="创建新问卷">
+        </div>
+    </form>
+
+</body>
+</html>

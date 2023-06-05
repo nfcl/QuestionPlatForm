@@ -58,6 +58,54 @@
 
 }
 
+.MyAside-Group{
+
+    background-color: #404040;
+    border-radius: 0 0 5px 5px;
+    transition: opacity 0.5s;
+    padding: 5px 0;
+    margin: 10px 5px;
+
+}
+
+.MyAside .MyAside-Group{
+
+    opacity: 0;
+
+}
+
+.MyAside:hover .MyAside-Group{
+
+    opacity: 100%;
+
+}
+
+.MyAside-GroupTitle{
+
+    border-width: 5px 0 5px 0;
+    border-color: #222222;
+    text-align: center;
+    transition: opacity 0.5s;
+    padding: 10px 0;
+    margin: 5px 0 5px 0;
+    white-space: nowrap;
+    background-color: transparent;
+    color: #a2a2a2;
+
+}
+
+.MyAside .MyAside-GroupTitle{
+
+    opacity: 0;
+
+}
+
+.MyAside:hover .MyAside-GroupTitle{
+
+    opacity: 100%;
+
+}
+
 .MyAside-Item{
 
     border-width: 5px 0 5px 0;
@@ -65,7 +113,7 @@
     text-align: center;
     transition: opacity 0.5s,background-color 0.25s,color 0.2s;
     padding: 10px 0;
-    margin: 5px 0 5px 0;
+    margin: 4px 0;
     white-space: nowrap;
 
 }

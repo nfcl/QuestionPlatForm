@@ -47,10 +47,10 @@ public class Servlet_LookThroughQuestionnaires extends HttpServlet {
             while(rs.next()){
 
                 out.println(
-                    "<li class=\"HomePageQnLi\" onclick=\"ShowQuestionNaireInfo("+rs.getInt(1)+")\">\n" +
-                    "   <h1 class=\"HomePageQnName\">"+rs.getString(3)+"</h1>\n" +
-                    "   <div class=\"HomePageQnUser\">"+rs.getString(2)+"</div>\n" +
-                    "   <div class=\"HomePageQnStartTime\">"+rs.getTimestamp(4)+"</div>\n" +
+                    "<li class=\"QuestionNaireListView-li\" onclick=\"ShowQuestionNaireInfo("+rs.getInt(1)+")\">\n" +
+                    "   <h1 class=\"QuestionNaireListView-li-Title\">"+rs.getString(3)+"</h1>\n" +
+                    "   <div class=\"QuestionNaireListView-li-User\">"+rs.getString(2)+"</div>\n" +
+                    "   <div class=\"QuestionNaireListView-li-StartTime\">"+rs.getTimestamp(4)+"</div>\n" +
                     "</li>\n"
                 );
 

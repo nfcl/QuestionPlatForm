@@ -9,16 +9,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="完善答卷填写页面的外观">
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="现在显示界面的Iframe高度固定为窗口的剩余大小了！">
+      <change afterPath="$PROJECT_DIR$/src/main/java/QuestionNaire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_CreateQuestionNaire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_DropUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetUserList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_TryUseSessionSingIn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/CreateNewQuestionNaire.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/css/UserManager.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/CreateNewQuestionNaire.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/UserManager.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/CreateNewQuestionNaire.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/UserManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_PostAnswerNaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_PostAnswerNaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/HomePage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/HomePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/QuestionNaireInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/QuestionNaireInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/QuestionNaireList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +245,10 @@
       <workItem from="1685667408118" duration="2373000" />
       <workItem from="1685670383908" duration="4829000" />
       <workItem from="1685677875809" duration="23063000" />
-      <workItem from="1685752755492" duration="4935000" />
+      <workItem from="1685752755492" duration="14467000" />
+      <workItem from="1685797320923" duration="1613000" />
+      <workItem from="1685845903215" duration="33308000" />
+      <workItem from="1685921929845" duration="5105000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -340,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685722883228</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="现在显示界面的Iframe高度固定为窗口的剩余大小了！">
+      <created>1685758535597</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1685758535597</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +408,8 @@
     <MESSAGE value="问卷填写页面完善&#10;由Servlet链接数据库获取问卷题目并生成问卷表单" />
     <MESSAGE value="完成向数据库提交答卷信息" />
     <MESSAGE value="完善答卷填写页面的外观" />
-    <option name="LAST_COMMIT_MESSAGE" value="完善答卷填写页面的外观" />
+    <MESSAGE value="现在显示界面的Iframe高度固定为窗口的剩余大小了！" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
