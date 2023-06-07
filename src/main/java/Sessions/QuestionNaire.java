@@ -1,3 +1,5 @@
+package Sessions;
+
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.sql.Connection;
@@ -5,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class QuestionNaire {
 
@@ -27,7 +28,7 @@ public class QuestionNaire {
 
     public void Init(HttpServletRequest request) throws Exception {
 
-        QuestionNaireTitle = request.getParameter("QuestionNaire-Title");
+        QuestionNaireTitle = request.getParameter("Sessions.QuestionNaire-Title");
 
         if (QuestionNaireTitle == null || QuestionNaireTitle.isEmpty()) {
 
@@ -59,7 +60,7 @@ public class QuestionNaire {
 
         for (int i = 0; i < QuestionNum; ++i) {
 
-            kind = request.getParameter("QuestionNaire-Question-Kind-" + i);
+            kind = request.getParameter("Sessions.QuestionNaire-Question-Kind-" + i);
 
             if (kind == null || kind.isEmpty()) {
 
@@ -73,7 +74,7 @@ public class QuestionNaire {
 
                     Enter new_Question = new Enter();
 
-                    new_Question.QuestionTitle = request.getParameter("QuestionNaire-Question-Title-" + i);
+                    new_Question.QuestionTitle = request.getParameter("Sessions.QuestionNaire-Question-Title-" + i);
 
                     if (new_Question.QuestionTitle == null || new_Question.QuestionTitle.isEmpty()) {
 
@@ -90,7 +91,7 @@ public class QuestionNaire {
 
                     Single new_Question = new Single();
 
-                    new_Question.QuestionTitle = request.getParameter("QuestionNaire-Question-Title-" + i);
+                    new_Question.QuestionTitle = request.getParameter("Sessions.QuestionNaire-Question-Title-" + i);
 
                     if (new_Question.QuestionTitle == null || new_Question.QuestionTitle.isEmpty()) {
 
@@ -98,7 +99,7 @@ public class QuestionNaire {
 
                     }
 
-                    new_Question.Opptions = request.getParameterValues("QuestionNaire-OptionCont-" + i);
+                    new_Question.Opptions = request.getParameterValues("Sessions.QuestionNaire-OptionCont-" + i);
 
                     for (int j = 0; j < new_Question.Opptions.length; ++j) {
 
@@ -119,7 +120,7 @@ public class QuestionNaire {
 
                     Multiple new_Question = new Multiple();
 
-                    new_Question.QuestionTitle = request.getParameter("QuestionNaire-Question-Title-" + i);
+                    new_Question.QuestionTitle = request.getParameter("Sessions.QuestionNaire-Question-Title-" + i);
 
                     if (new_Question.QuestionTitle == null || new_Question.QuestionTitle.isEmpty()) {
 
@@ -127,7 +128,7 @@ public class QuestionNaire {
 
                     }
 
-                    new_Question.Opptions = request.getParameterValues("QuestionNaire-OptionCont-" + i);
+                    new_Question.Opptions = request.getParameterValues("Sessions.QuestionNaire-OptionCont-" + i);
 
                     for (int j = 0; j < new_Question.Opptions.length; ++j) {
 
@@ -158,7 +159,7 @@ public class QuestionNaire {
 
         ResultSet rs;
 
-        conn = DruidUtil.getDataSource().getConnection();
+        conn = DruidUtil.DruidUtil.getDataSource().getConnection();
 
         stmt = conn.prepareStatement("" +
                 "INSERT INTO questionnaire(" +

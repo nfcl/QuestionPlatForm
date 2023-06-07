@@ -1,32 +1,46 @@
-import java.io.*;
-import java.sql.*;
+import DruidUtil.DruidUtil;
+import Sessions.User;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-import jakarta.servlet.http.*;
+import java.io.IOException;
 
-import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Servlet_SignIn extends HttpServlet {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        String account = request.getParameter("account");
-        String password = request.getParameter("password");
-
-        PrintWriter out = response.getWriter();
-
-        //设置输出字符集,否则中文可能会乱码
-        response.setCharacterEncoding("utf-8");
-        response.setContentType("text/html;charset=UTF-8");
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         try {
+
+            String account = request.getParameter("Account");
+
+            if (account==null||account.isEmpty()) {
+
+                throw new Exception("账号为空");
+
+            }
+
+            String password = request.getParameter("Password");
+
+            if (password==null||password.isEmpty()) {
+
+                throw new Exception("密码为空");
+
+            }
 
             //通过连接池获得连接
             Connection connection = DruidUtil.getDataSource().getConnection();
             //设置SQL语句
             PreparedStatement stmt = connection.prepareStatement("" +
                     "SELECT " +
-                    "   user.user_Id," +
-                    "   user.user_Name " +
+                    "   user_Id," +
+                    "   user_Name," +
+                    "   user_IsAdmin " +
                     "FROM user " +
                     "WHERE user_Account=? AND user_Password=?"
             );
@@ -35,16 +49,19 @@ public class Servlet_SignIn extends HttpServlet {
             //查询结果
             ResultSet rs = stmt.executeQuery();
 
-            if(rs.next()){
+            if (rs.next()) {
 
-                request.getSession().setAttribute("User_Id",rs.getString(1));
+                User user = new User();
 
-                out.println(rs.getString(2));
+                user.Id = rs.getString(1);
+                user.Name = rs.getString(2);
+                user.IsAdmin = rs.getString(3);
+                request.getSession().setAttribute("User", user);
+                response.sendRedirect("./SignIn.jsp");
 
-            }
-            else{
+            } else {
 
-                out.println("");
+                throw new Exception("账号或密码错误");
 
             }
 
@@ -52,9 +69,10 @@ public class Servlet_SignIn extends HttpServlet {
             stmt.close();
             connection.close();
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
 
-            throw new RuntimeException(e);
+            request.setAttribute("SignInFalseReason",e.getMessage());
+            request.getRequestDispatcher("./SignIn.jsp").forward(request,response);
 
         }
 

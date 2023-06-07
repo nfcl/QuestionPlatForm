@@ -1,0 +1,70 @@
+.MyAside {
+
+    position: absolute;
+    background: transparent;
+    width: 100px;
+
+}
+
+.MyAside-Group {
+
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+
+}
+
+.MyAside-GroupTitle {
+
+    color: #fbf9e3;
+    padding: 10px 0 10px 5%;
+    margin-top: 5px;
+    background-color: rgba(59, 56, 48, 0.8);
+    font-size: 1.5em;
+
+}
+
+.MyAside-GroupTitle:first-child {
+
+    margin-top: 0;
+
+}
+
+.MyAside-Item {
+
+    padding: 5px 0 5px 12%;
+    transition: background-color 0.15s, color 0.25s;
+    border-top: 2px solid #9d9e74;
+    font-weight: normal;
+    font-size: 1em;
+    display: block;
+
+}
+
+.MyAside-Group .MyAside-Item:nth-child(2) {
+
+    border-image-source: linear-gradient(to right, #9b2c25 0%, #9b2c25 33%, #ebab3c 34%, #ebab3c 66%, #8eb69f 67%, #8eb69f 100%);
+    border-image-slice: 1;
+    border-top: 4px solid;
+
+}
+
+.MyAside-Group .MyAside-Item:last-child {
+
+    border-bottom-right-radius: 5px;
+
+}
+
+.MyAside .MyAside-Item {
+
+    opacity: 100%;
+    background-color: rgba(59, 56, 48, 0.8);
+    color: #eaeaea;
+
+}
+
+.MyAside .MyAside-Item:hover {
+
+    background-color: #eaeaea;
+    color: rgba(59, 56, 48, 0.8);
+
+}

@@ -105,4 +105,14 @@
         <url-pattern>/Servlet_TryUseSessionSingIn</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Servlet_SignOff</servlet-name>
+        <servlet-class>Servlet_SignOff</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_SignOff</servlet-name>
+        <url-pattern>/Servlet_SignOff</url-pattern>
+    </servlet-mapping>
+
 </web-app>

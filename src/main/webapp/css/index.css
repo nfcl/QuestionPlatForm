@@ -14,171 +14,18 @@
 
 }
 
-#MyTitle h1{
+#MyTitle h1 {
 
     padding: 20px;
 
 }
 
-.MyAside{
-
-    position: absolute;
-    background: #7c7c7c;
-    width: 50px;
-    transition: width 0.5s;
-    z-index: 9999;
-
-}
-
-.MyAside:hover{
-    width: 20%;
-}
-
-.AsideControlButton{
-
-    border: 0;
-    position: absolute;
-    background-color: black;
-    padding:0 calc(calc(100% - 50px)/2);
-    width: 50px;
-    opacity: 100%;
-    transition: opacity 1s,padding 0.25s;
-
-}
-
-.MyAside:hover #FakeAsideIcon{
-
-    opacity: 0;
-
-}
-
-.MyAside:hover .ControlButtonDiv{
-
-    width: 100%;
-
-}
-
-.MyAside-Group{
-
-    background-color: #404040;
-    border-radius: 0 0 5px 5px;
-    transition: opacity 0.5s;
-    padding: 5px 0;
-    margin: 10px 5px;
-
-}
-
-.MyAside .MyAside-Group{
-
-    opacity: 0;
-
-}
-
-.MyAside:hover .MyAside-Group{
-
-    opacity: 100%;
-
-}
-
-.MyAside-GroupTitle{
-
-    border-width: 5px 0 5px 0;
-    border-color: #222222;
-    text-align: center;
-    transition: opacity 0.5s;
-    padding: 10px 0;
-    margin: 5px 0 5px 0;
-    white-space: nowrap;
-    background-color: transparent;
-    color: #a2a2a2;
-
-}
-
-.MyAside .MyAside-GroupTitle{
-
-    opacity: 0;
-
-}
-
-.MyAside:hover .MyAside-GroupTitle{
-
-    opacity: 100%;
-
-}
-
-.MyAside-Item{
-
-    border-width: 5px 0 5px 0;
-    border-color: #222222;
-    text-align: center;
-    transition: opacity 0.5s,background-color 0.25s,color 0.2s;
-    padding: 10px 0;
-    margin: 4px 0;
-    white-space: nowrap;
-
-}
-
-.MyAside .MyAside-Item{
-
-    opacity: 0;
-    background-color: #CCCCCC;
-    color: #202020;
-
-}
-
-.MyAside:hover .MyAside-Item{
-
-    opacity: 100%;
-
-}
-
-.MyAside:hover .MyAside-Item:hover{
-
-    background-color: #202020;
-    color: #CCCCCC;
-
-}
-
-#MyNav{
-
-    background-color: #404040;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-
-}
-
-.MyNav-Item{
-
-    float: right;
-    text-align: center;
-    padding: 10px 15px 10px 15px;
-    color: #CCCCCC;
-
-}
-
-.MyNav-Item:hover{
-
-    background-color: #CCCCCC;
-    color: #404040;
-
-}
-
-.MyNav-Hide .MyNav-Item {
-
-    width: 0;
-    height: 0;
-    padding: 0;
-    opacity: 0;
-
-}
-
-#ContentFrame{
+#ContentFrame {
 
     position: absolute;
 
-    left: 50px;
+    left: 100px;
 
-    width: calc(100% - 50px);
+    width: calc(100% - 100px);
 
 }

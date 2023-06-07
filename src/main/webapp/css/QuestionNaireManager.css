@@ -1,0 +1,101 @@
+* {
+    padding: 0;
+    margin: 0;
+    user-select: none;
+}
+
+.QuestionNaireListView-li {
+
+    margin: 10px;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 100% 0;
+    transition: all 0.5s;
+
+}
+
+.QuestionNaireListView-li:hover {
+
+    grid-template-columns: 90% 10%;
+
+}
+
+.QuestionNaire-QuestionInfo {
+
+    background-color: #7c7c7c;
+    padding: 20px;
+    transition: all 0.5s;
+    width: 94%;
+
+}
+
+.QuestionNaireListView-li:hover .QuestionNaire-QuestionInfo {
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 90%;
+
+}
+
+.QuestionNaire-QuestionInfo * {
+
+    color: #CCCCCC;
+
+}
+
+.QuestionNaireListView-li-User {
+
+    text-align: right;
+
+    margin-bottom: 5px;
+
+}
+
+.QuestionNaireListView-li-StartTime {
+
+    text-align: right;
+
+}
+
+.QuestionNaire-QuestionDelete {
+
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    transition: all 0.5s;
+    opacity: 0;
+    line-height: 10px;
+    padding: 50% 0;
+
+}
+
+.QuestionNaireListView-li:hover .QuestionNaire-QuestionDelete {
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    opacity: 100%;
+
+}
+
+.QuestionNaire-QuestionDelete:hover {
+
+    background-color: rgb(255, 0, 0);
+
+}
+
+.JumpButton{
+
+    position: relative;
+    margin: 0 10px;
+    padding: 5px;
+    transition: color 0.1s,background-color 0.15s;
+
+}
+
+.JumpButton:hover{
+
+    background-color: #404040;
+    color: #CCCCCC;
+
+}

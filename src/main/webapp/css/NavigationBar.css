@@ -1,0 +1,25 @@
+#MyNav {
+
+     background-color: #404040;
+     overflow: hidden;
+     position: relative;
+     width: 100%;
+
+ }
+
+.MyNav-Item {
+
+    float: right;
+    text-align: center;
+    padding: 10px 15px 10px 15px;
+    color: #CCCCCC;
+    transition: all 0.1s;
+
+}
+
+.MyNav-Item:hover {
+
+    background-color: #CCCCCC;
+    color: rgba(59, 56, 48, 0.8);
+
+}

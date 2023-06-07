@@ -1,4 +1,4 @@
-TrySignUp = function (){
+TrySignUp = function () {
 
     let Account = document.getElementById("SignUpAccount").value;
 
@@ -6,42 +6,24 @@ TrySignUp = function (){
 
     let Name = document.getElementById("SignUpName").value;
 
-    if(Account == null || Account === ""){
-        alert("账号为空");
-    }
-    else if(Password == null || Password === ""){
-        alert("密码为空");
-    }
-    else if(Name == null || Name === ""){
-        alert("名称为空");
-    }
-    else{
+    $.get(
+        "../Servlet_SignUp?name=" + Name + "&account=" + Account + "&password=" + Password,
+        null,
+        function (info) {
 
-        $.get(
+            if (info.startsWith("TRUE")) {
 
-            "../Servlet_SignUp?name="+Name+"&account="+Account+"&password="+Password,
-            null,
-            function (info){
+                alert("注册成功");
 
-                if(info.startsWith("TRUE")){
+            } else {
 
-                    let id = info.match(/TRUE\nId=(\S*)/);
+                let reason = info.match(/FALSE\nReason=(\S*)/)[1];
 
-                    console.log(id);
-
-                }
-                else{
-
-                    let reason = info.match(/FALSE\nReason=(\S*)/);
-
-                    console.log(reason);
-
-                }
+                alert(reason);
 
             }
 
-        );
-
-    }
+        }
+    );
 
 }

@@ -1,45 +1,30 @@
-TrySignIn = function (){
+TrySignIn = function () {
 
     let Account = document.getElementById('SignInAccount').value;
     let Password = document.getElementById('SignInPassword').value;
 
-    if(Account == null || Account === ""){
-        alert("账号为空");
-    }
-    else if(Password == null || Password === ""){
-        alert("密码为空");
-    }
-    else{
+    $.get(
+        "../Servlet_SignIn?account=" + Account + "&password=" + Password,
+        null,
+        function (info) {
 
-        $.get(
+            if (info.startsWith("TRUE")) {
 
-            "../Servlet_SignIn?account="+Account+"&password="+Password,
-            null,
-            function(info){
+                let name = info.match(/TRUE\nName=(\S*)\n/)[1];
 
-                //这里应该传回一个字符串为用户名称
-                //如果info为空则登录失败
+                let isAdmin = info.match(/\nIsAdmin=(\S*)/)[1];
 
-                if(info==null || info === ""){
+                window.parent.LogOn(name, isAdmin);
 
-                    //登录失败
+                alert("欢迎登陆 " + name + " ");
 
-                }
-                else{
+            } else {
 
-                    //登录成功
-
-                    window.parent.localStorage.setItem("Cierra_Account",Account);
-                    window.parent.localStorage.setItem("Cierra_Password",Password);
-
-                    window.parent.LogOn(info);
-
-                }
+                alert(info.match(/FALSE\nReason=(\S*)/)[1]);
 
             }
 
-        );
-
-    }
+        }
+    );
 
 }

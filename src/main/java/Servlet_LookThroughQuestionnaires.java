@@ -1,69 +1,123 @@
+import DruidUtil.DruidUtil;
+import Sessions.QuestionNaireInfo;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Servlet_LookThroughQuestionnaires extends HttpServlet {
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int FirstItemIndex = Integer.parseInt(request.getParameter("FirstIndex"));
+        int PerPageListItemNum = 10;
 
-        int PerPageListItemNum = Integer.parseInt(request.getParameter("PerPageListItemNum"));
+        int QuestionNaireNum = 0;
 
-        if(FirstItemIndex < 0){
+        Connection conn;
 
-            throw new IOException("起始下标小于0");
+        PreparedStatement stmt;
 
-        }
-
-        PrintWriter out = response.getWriter();
+        ResultSet rs;
 
         try {
 
-            Connection conn = DruidUtil.getDataSource().getConnection();
+            conn = DruidUtil.getDataSource().getConnection();
 
-            //查询指定范围内的问卷
-            PreparedStatement ps = conn.prepareStatement("SELECT " +
-                    "questionnaire.questionnaire_Id," +
-                    "user.user_Name, " +
-                    "questionnaire.questionnaire_Name, " +
-                    "questionnaire.questionnaire_Starttime " +
+            stmt = conn.prepareStatement("" +
+                    "SELECT " +
+                    "   COUNT(questionnaire_Id)" +
                     "FROM " +
-                    "questionnaire," +
-                    "user " +
+                    "   questionnaire"
+            );
+
+            rs = stmt.executeQuery();
+
+            rs.next();
+
+            QuestionNaireNum = rs.getInt(1);
+
+            rs.close();
+
+            stmt.close();
+
+            int CurrentPageNum = 0;
+
+            int MaxPageNum = QuestionNaireNum / PerPageListItemNum;
+
+            if (request.getParameter("CurrentPageNum") != null) {
+
+                CurrentPageNum = Integer.parseInt(request.getParameter("CurrentPageNum"));
+
+                if (CurrentPageNum < 0) {
+
+                    CurrentPageNum = 0;
+
+                } else if (CurrentPageNum > MaxPageNum) {
+
+                    CurrentPageNum = MaxPageNum;
+
+                }
+
+            }
+            //查询指定范围内的问卷
+            stmt = conn.prepareStatement("" +
+                    "SELECT " +
+                    "   questionnaire.questionnaire_Id," +
+                    "   questionnaire.questionnaire_Name, " +
+                    "   user.user_Name, " +
+                    "   questionnaire.questionnaire_Starttime " +
+                    "FROM " +
+                    "   questionnaire," +
+                    "   user " +
                     "WHERE " +
-                    "questionnaire.user_Id = user.user_Id " +
+                    "   questionnaire.user_Id = user.user_Id " +
                     "LIMIT ?,?;");
 
-            ps.setInt(1,FirstItemIndex);
-            ps.setInt(2,PerPageListItemNum);
+            stmt.setInt(1, CurrentPageNum * PerPageListItemNum);
+            stmt.setInt(2, PerPageListItemNum);
 
-            ResultSet rs = ps.executeQuery();
+            rs = stmt.executeQuery();
 
-            while(rs.next()){
+            ArrayList<QuestionNaireInfo> NaireList = new ArrayList<QuestionNaireInfo>();
 
-                out.println(
-                    "<li class=\"QuestionNaireListView-li\" onclick=\"ShowQuestionNaireInfo("+rs.getInt(1)+")\">\n" +
-                    "   <h1 class=\"QuestionNaireListView-li-Title\">"+rs.getString(3)+"</h1>\n" +
-                    "   <div class=\"QuestionNaireListView-li-User\">"+rs.getString(2)+"</div>\n" +
-                    "   <div class=\"QuestionNaireListView-li-StartTime\">"+rs.getTimestamp(4)+"</div>\n" +
-                    "</li>\n"
+            while (rs.next()) {
+
+                NaireList.add(
+                        new QuestionNaireInfo(
+                                rs.getString(1),
+                                rs.getString(2),
+                                rs.getString(3),
+                                rs.getString(4)
+                        )
                 );
 
             }
 
             rs.close();
 
-            ps.close();
+            stmt.close();
 
             conn.close();
+
+            request.setAttribute("CurrentPageNum", CurrentPageNum);
+            request.setAttribute("QuestionNaireInfos", NaireList);
+
+            request.getRequestDispatcher("./QuestionNaireList.jsp").forward(request, response);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        doGet(req, resp);
+
     }
 }

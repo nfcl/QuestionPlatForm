@@ -1,117 +1,27 @@
-QuestionNaireListPageUp = function(){
+QuestionNaireListPageHome = function () {
 
-    //获得当前页数
-    let CurrentPage = parseInt(document.getElementById("HomePageListPageNum").textContent);
-
-    let PerPageListItemNum = 10;
-
-    $.get(
-        "../Servlet_GetQuestionNaireNum",
-        null,
-        function (num){
-
-            let MaxPageNum =Math.ceil(parseInt(num) / PerPageListItemNum);
-
-            if(CurrentPage > 1){
-
-                CurrentPage -= 1;
-
-            }
-
-            ShowQuestionnaireList(PerPageListItemNum,CurrentPage);
-
-        }
-    )
+    document.getElementsByName("CurrentPageNum").item(0).value = 0;
 
 }
 
-QuestionNaireListPageDn = function(){
+QuestionNaireListPageEnd = function () {
 
-    //获得当前页数
-    let CurrentPage = parseInt(document.getElementById("HomePageListPageNum").textContent);
-
-    let PerPageListItemNum = 10;
-
-    $.get(
-        "../Servlet_GetQuestionNaireNum",
-        null,
-        function (num){
-
-            let MaxPageNum =Math.ceil(parseInt(num) / PerPageListItemNum);
-
-            if(CurrentPage < MaxPageNum){
-
-                CurrentPage += 1;
-
-            }
-
-            ShowQuestionnaireList(PerPageListItemNum,CurrentPage);
-
-        }
-    )
+    document.getElementsByName("CurrentPageNum").item(0).value = 16383;
 
 }
 
-QuestionNaireListPageHome = function(){
+QuestionNaireListPageUp = function () {
 
-    ShowQuestionnaireList(10,1);
+    let CurrentPageNum = parseInt(document.getElementsByName("CurrentPageNum").item(0).value);
 
-}
-
-QuestionNaireListPageEnd = function(){
-
-    //获得当前页数
-    let CurrentPage = parseInt(document.getElementById("HomePageListPageNum").textContent);
-
-    let PerPageListItemNum = 10;
-
-    $.get(
-        "../Servlet_GetQuestionNaireNum",
-        null,
-        function (num){
-
-            CurrentPage = Math.ceil(parseInt(num) / PerPageListItemNum);
-
-            ShowQuestionnaireList(PerPageListItemNum,CurrentPage);
-
-        }
-    )
+    document.getElementsByName("CurrentPageNum").item(0).value = CurrentPageNum - 1;
 
 }
 
-ShowQuestionnaireList = function(PerPageListItemNum,CurrentPage){
+QuestionNaireListPageDn = function () {
 
-    //计算开头的列表项下标
-    let firstItemIndex = (CurrentPage - 1) * PerPageListItemNum;
+    let CurrentPageNum = parseInt(document.getElementsByName("CurrentPageNum").item(0).value);
 
-    $.get("../Servlet_LookThroughQuestionnaires?FirstIndex="+firstItemIndex+"&PerPageListItemNum="+PerPageListItemNum,
-        function(data){
-
-            $("#QuestionNaireListView").html(data);
-
-            document.getElementById("HomePageListPageNum").textContent = CurrentPage;
-
-            AsideBarFit();
-
-        }
-    );
-
-}
-
-ShowQuestionNaireInfo = function(QN_Id){
-
-    window.parent.document.getElementById('ContentFrame').src = './html/QuestionNaireInfo.html?QN_Id='+QN_Id;
-
-}
-
-JumpTo = function (frameName){
-
-    window.parent.document.getElementById("ContentFrame").src = "./html/"+frameName+".html";
-
-}
-
-AsideBarFit = function(){
-
-    window.parent.document.getElementById("ContentFrame").onload(undefined);
+    document.getElementsByName("CurrentPageNum").item(0).value = CurrentPageNum + 1;
 
 }
