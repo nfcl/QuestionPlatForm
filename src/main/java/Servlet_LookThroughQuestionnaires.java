@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Servlet_LookThroughQuestionnaires extends HttpServlet {
 
@@ -47,7 +46,7 @@ public class Servlet_LookThroughQuestionnaires extends HttpServlet {
 
             int CurrentPageNum = 0;
 
-            int MaxPageNum = QuestionNaireNum / PerPageListItemNum;
+            int MaxPageNum = (QuestionNaireNum - 1) / PerPageListItemNum;
 
             if (request.getParameter("CurrentPageNum") != null) {
 

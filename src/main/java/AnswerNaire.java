@@ -1,437 +1,148 @@
-import DruidUtil.DruidUtil;
-import jakarta.servlet.http.HttpServletRequest;
-
-import java.sql.*;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class AnswerNaire {
 
-    private String questionNaireId;
+    private final String questionNaireId;
+    private final String creatorId;
+    private final LinkedList<Enter> enters;
+    private final LinkedList<Single> singles;
+    private final LinkedList<Multiple> multiples;
 
-    private ArrayList<Enter> enters;
-    private ArrayList<Single> singles;
-    private ArrayList<Multiple> multiples;
+    public String getQuestionNaireId() {
 
-    private abstract class Question{
-
-        public String QuestionId;
-
-    }
-
-    private class Enter extends Question{
-
-        public Enter(String Qn_Id) {
-
-            QuestionId = Qn_Id;
-
-        }
-
-        private String AnswerCont;
+        return questionNaireId;
 
     }
 
-    private class Multiple extends Question{
+    public String getCreatorId() {
 
-        public Multiple(String Qn_Id) {
-
-            QuestionId = Qn_Id;
-
-        }
-
-        private String[] SelectOptionIds;
+        return creatorId;
 
     }
 
-    private class Single extends Question{
+    public void AddQuestion_Enter(Enter question) {
 
-        public Single(String Qn_Id) {
-
-            QuestionId = Qn_Id;
-
-        }
-
-        private String SelectOptionId;
+        enters.add(question);
 
     }
 
-    public AnswerNaire(String QN_Id) throws SQLException {
+    public void AddQuestion_Single(Single question) {
 
-        Init(QN_Id);
-
-    }
-
-    public void Init(String QN_Id) throws SQLException {
-
-        questionNaireId = QN_Id;
-
-        if(enters!=null){
-
-            enters.clear();
-
-        }
-        else{
-
-            enters = new ArrayList<Enter>();
-
-        }
-        if(singles!=null){
-
-            singles.clear();
-
-        }
-        else{
-
-            singles = new ArrayList<Single>();
-
-        }
-        if(multiples!=null){
-
-            multiples.clear();
-
-        }
-        else{
-
-            multiples = new ArrayList<Multiple>();
-
-        }
-
-        ResultSet rs = null;
-
-        PreparedStatement stmt = null;
-
-        Connection conn = null;
-
-        conn = DruidUtil.getDataSource().getConnection();
-
-        //首先获得问卷的信息
-        stmt = conn.prepareStatement("" +
-                "SELECT " +
-                "   questionnaire_Id " +
-                "FROM questionnaire " +
-                "WHERE questionnaire_Id = ?"
-        );
-
-        stmt.setString(1, QN_Id);
-
-        rs = stmt.executeQuery();
-
-        if(rs.next()){
-
-            rs.close();
-
-            stmt.close();
-
-            stmt = conn.prepareStatement("" +
-                    "SELECT " +
-                    "   question_Id," +
-                    "   question_Kind " +
-                    "FROM question " +
-                    "WHERE questionnaire_Id = ?"
-            );
-
-            stmt.setString(1,QN_Id);
-
-            rs = stmt.executeQuery();
-
-            String question_Id;
-
-            String question_Kind;
-
-            while(rs.next()){
-
-                question_Id = rs.getString(1);
-                question_Kind = rs.getString(2);
-
-                switch(question_Kind){
-
-                    case "Enter":{
-
-                        enters.add(new Enter(question_Id));
-
-                        break;
-                    }
-                    case "Single":{
-
-                        singles.add(new Single(question_Id));
-
-                        break;
-                    }
-                    case "Multiple":{
-
-                        multiples.add(new Multiple(question_Id));
-
-                        break;
-                    }
-
-                }
-
-            }
-
-        }
-        else{
-
-            throw new RuntimeException("无效的问卷ID");
-
-        }
-
-        rs.close();
-        stmt.close();
-        conn.close();
+        singles.add(question);
 
     }
 
-    public void QueryAnswer(HttpServletRequest request) throws Exception {
+    public void AddQuestion_Multiple(Multiple question) {
 
-        for(int i = 0;i<enters.size();++i){
+        multiples.add(question);
 
-            enters.get(i).AnswerCont = request.getParameter("Answer-"+enters.get(i).QuestionId);
+    }
 
-            if(enters.get(i).AnswerCont == null || enters.get(i).AnswerCont.isEmpty()){
+    public LinkedList<Enter> getEnters() {
 
-                throw new Exception("空值");
+        return enters;
 
-            }
+    }
+
+    public LinkedList<Multiple> getMultiples() {
+
+        return multiples;
+
+    }
+
+    public LinkedList<Single> getSingles() {
+
+        return singles;
+
+    }
+
+    public AnswerNaire(String QuestionNaireId, String CreatorId) {
+
+        questionNaireId = QuestionNaireId;
+
+        creatorId = CreatorId;
+
+        enters = new LinkedList<>();
+
+        singles = new LinkedList<>();
+
+        multiples = new LinkedList<>();
+
+    }
+
+    private abstract static class Question {
+
+        private final String Id;
+
+        public Question(String id) {
+
+            Id = id;
 
         }
 
-        for(int i = 0;i<singles.size();++i){
+        public String getId() {
 
-            singles.get(i).SelectOptionId = request.getParameter("Answer-"+singles.get(i).QuestionId);
-
-            if(singles.get(i).SelectOptionId == null || singles.get(i).SelectOptionId.isEmpty()){
-
-                throw new Exception("空值");
-
-            }
-
-        }
-
-        for(int i = 0;i<multiples.size();++i){
-
-            multiples.get(i).SelectOptionIds = request.getParameterValues("Answer-"+multiples.get(i).QuestionId);
-
-            if(multiples.get(i).SelectOptionIds == null || multiples.get(i).SelectOptionIds.length == 0){
-
-                throw new Exception("空值");
-
-            }
+            return Id;
 
         }
 
     }
 
-    public void RecordAnswerNaire(String EnterUser) throws SQLException {
+    public static class Enter extends Question {
 
-        //首先插入一条答卷的记录
+        public Enter(String questionId, String answerContent) {
 
-        ResultSet rs = null;
+            super(questionId);
 
-        PreparedStatement stmt = null;
-
-        Connection conn = null;
-
-        conn = DruidUtil.getDataSource().getConnection();
-
-        stmt = conn.prepareStatement("" +
-            "INSERT INTO answernaire(" +
-            "   user_Id," +
-            "   questionnaire_Id," +
-            "   finish_time" +
-            ")" +
-            "VALUES(" +
-            "   ?," +
-            "   ?," +
-            "   NOW()" +
-            ")"
-        );
-
-        stmt.setString(1,EnterUser);
-
-        stmt.setString(2,questionNaireId);
-
-        stmt.executeUpdate();
-
-        stmt.close();
-
-        stmt = conn.prepareStatement("SELECT LAST_INSERT_ID()");
-
-        rs = stmt.executeQuery();
-
-        rs.next();
-
-        String AnswerNaireId = rs.getString(1);
-
-        rs.close();
-
-        stmt.close();
-
-        String AnswerId;
-
-        for(int i=0;i<enters.size();++i){
-
-            stmt = conn.prepareStatement("" +
-                "INSERT INTO answer(" +
-                "   answernaire_Id," +
-                "   question_Id" +
-                ")" +
-                "VALUES(" +
-                "   ?," +
-                "   ?" +
-                ")"
-            );
-
-            stmt.setString(1,AnswerNaireId);
-            stmt.setString(2,enters.get(i).QuestionId);
-
-            stmt.executeUpdate();
-
-            stmt.close();
-
-            stmt = conn.prepareStatement("SELECT LAST_INSERT_ID()");
-
-            rs = stmt.executeQuery();
-
-            rs.next();
-
-            AnswerId = rs.getString(1);
-
-            rs.close();
-
-            stmt.close();
-
-            stmt = conn.prepareStatement("" +
-                "INSERT INTO answer_enter(" +
-                "   answer_Id," +
-                "   answer_Cont" +
-                ")" +
-                "VALUES(" +
-                "   ?," +
-                "   ?" +
-                ")"
-            );
-
-            stmt.setLong(1, Long.parseLong(AnswerId));
-
-            stmt.setString(2,enters.get(i).AnswerCont);
-
-            stmt.executeUpdate();
-
-            stmt.close();
+            AnswerCont = answerContent;
 
         }
 
-        for(int i=0;i<singles.size();++i){
+        private final String AnswerCont;
 
-            stmt = conn.prepareStatement("" +
-                "INSERT INTO answer(" +
-                "   answernaire_Id," +
-                "   question_Id" +
-                ")" +
-                "VALUES(" +
-                "   ?," +
-                "   ?" +
-                ")"
-            );
+        public String getAnswerCont() {
 
-            stmt.setString(1,AnswerNaireId);
-            stmt.setString(2,singles.get(i).QuestionId);
+            return AnswerCont;
 
-            stmt.executeUpdate();
+        }
+    }
 
-            stmt.close();
+    public static class Multiple extends Question {
 
-            stmt = conn.prepareStatement("SELECT LAST_INSERT_ID()");
+        public Multiple(String questionId, String[] selectOptionIds) {
 
-            rs = stmt.executeQuery();
+            super(questionId);
 
-            rs.next();
-
-            AnswerId = rs.getString(1);
-
-            rs.close();
-
-            stmt.close();
-
-            stmt = conn.prepareStatement("" +
-                "INSERT INTO answer_option(" +
-                "   answer_Id," +
-                "   questionoption_Id" +
-                ")" +
-                "VALUES(" +
-                "   ?," +
-                "   ?" +
-                ")"
-            );
-
-            stmt.setLong(1, Long.parseLong(AnswerId));
-
-            stmt.setString(2,singles.get(i).SelectOptionId);
-
-            stmt.executeUpdate();
-
-            stmt.close();
+            SelectOptionIds = selectOptionIds;
 
         }
 
-        for(int i=0;i<multiples.size();++i){
+        private final String[] SelectOptionIds;
 
-            stmt = conn.prepareStatement("" +
-                "INSERT INTO answer(" +
-                "   answernaire_Id," +
-                "   question_Id" +
-                ")" +
-                "VALUES(" +
-                "   ?," +
-                "   ?" +
-                ")"
-            );
+        public String[] getSelectOptionIds() {
 
-            stmt.setString(1,AnswerNaireId);
-            stmt.setString(2,multiples.get(i).QuestionId);
+            return SelectOptionIds;
 
-            stmt.executeUpdate();
+        }
+    }
 
-            stmt.close();
+    public static class Single extends Question {
 
-            stmt = conn.prepareStatement("SELECT LAST_INSERT_ID()");
+        public Single(String questionId, String selectOptionId) {
 
-            rs = stmt.executeQuery();
+            super(questionId);
 
-            rs.next();
-
-            AnswerId = rs.getString(1);
-
-            rs.close();
-
-            stmt.close();
-
-            for(int j = 0;j<multiples.get(i).SelectOptionIds.length;++j){
-
-                stmt = conn.prepareStatement("" +
-                    "INSERT INTO answer_option(" +
-                    "   answer_Id," +
-                    "   questionoption_Id" +
-                    ")" +
-                    "VALUES(" +
-                    "   ?," +
-                    "   ?" +
-                    ")"
-                );
-
-                stmt.setLong(1, Long.parseLong(AnswerId));
-
-                stmt.setLong(2, Long.parseLong(multiples.get(i).SelectOptionIds[j]));
-
-                stmt.executeUpdate();
-
-                stmt.close();
-
-            }
+            SelectOptionId = selectOptionId;
 
         }
 
-        conn.close();
+        private final String SelectOptionId;
 
+        public String getSelectOptionId() {
+
+            return SelectOptionId;
+
+        }
     }
 
 }

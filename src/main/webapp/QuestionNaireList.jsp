@@ -42,7 +42,6 @@
 
             <ul id="QuestionNaireListView">
 
-
                 <%
 
                     if (request.getAttribute("QuestionNaireInfos") != null) {
@@ -54,11 +53,12 @@
                         for (int i = 0; i < list.size(); ++i) {
 
                             out.println(
-                                    "<li class='QuestionNaireListView-li'>" +
-                                            "   <h1 class='QuestionNaireListView-li-Title'>" + list.get(i).getTitle() + "</h1>" +
-                                            "   <div class='QuestionNaireListView-li-Sessions.User'>" + list.get(i).getCreator() + "</div>" +
-                                            "   <div class='QuestionNaireListView-li-StartTime'>" + list.get(i).getStartTime() + "</div>" +
-                                            "</li>"
+                                "<li class='QuestionNaireListView-li' onclick='this.querySelector(\"a\").click();'>" +
+                                "   <a hidden='hidden' href='Servlet_GetQuestionNaireInfo?QN_Id="+list.get(i).getId()+"'></a>" +
+                                "   <h1 class='QuestionNaireListView-li-Title'>" + list.get(i).getTitle() + "</h1>" +
+                                "   <div class='QuestionNaireListView-li-Sessions.User'>" + list.get(i).getCreator() + "</div>" +
+                                "   <div class='QuestionNaireListView-li-StartTime'>" + list.get(i).getStartTime() + "</div>" +
+                                "</li>"
                             );
 
                         }
