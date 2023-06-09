@@ -17,105 +17,63 @@
     <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
-
 <div id="MyTitle">
     <h1>Cierra</h1>
 </div>
-
 <div id="MyNav">
-
     <jsp:include page="NavigationBar.jsp"/>
-
 </div>
-
 <div class="MyCont">
-
     <div id="MyAside" class="MyAside">
-
         <jsp:include page="./AsideBar.jsp"/>
-
     </div>
-
     <div id="ContentFrame">
-
         <div align="center" id="MyHomePage">
-
             <ul id="QuestionNaireListView">
-
                 <%
-
                     if (request.getAttribute("QuestionNaireInfos") != null) {
-
                         ArrayList<QuestionNaireInfo> list = (ArrayList<QuestionNaireInfo>) request.getAttribute("QuestionNaireInfos");
-
                         QuestionNaireInfo item;
-
-                        for (int i = 0; i < list.size(); ++i) {
-
+                        for (QuestionNaireInfo questionNaireInfo : list) {
                             out.println(
-                                "<li class='QuestionNaireListView-li' onclick='this.querySelector(\"a\").click();'>" +
-                                "   <a hidden='hidden' href='Servlet_GetQuestionNaireInfo?QN_Id="+list.get(i).getId()+"'></a>" +
-                                "   <h1 class='QuestionNaireListView-li-Title'>" + list.get(i).getTitle() + "</h1>" +
-                                "   <div class='QuestionNaireListView-li-Sessions.User'>" + list.get(i).getCreator() + "</div>" +
-                                "   <div class='QuestionNaireListView-li-StartTime'>" + list.get(i).getStartTime() + "</div>" +
-                                "</li>"
+                                    "<li class='QuestionNaireListView-li' onclick='this.querySelector(\"a\").click();'>" +
+                                    "   <a hidden='hidden' href='Servlet_GetQuestionNaireInfo?QN_Id=" + questionNaireInfo.getId() + "'></a>" +
+                                    "   <h1 class='QuestionNaireListView-li-Title'>" + questionNaireInfo.getTitle() + "</h1>" +
+                                    "   <div class='QuestionNaireListView-li-Sessions.User'>" + questionNaireInfo.getCreator() + "</div>" +
+                                    "   <div class='QuestionNaireListView-li-StartTime'>" + questionNaireInfo.getStartTime() + "</div>" +
+                                    "</li>"
                             );
-
                         }
-
                     }
-
                 %>
-
             </ul>
-
             <div>
-
-                <form action="Servlet_LookThroughQuestionnaires" method="post">
-
+                <form action="Servlet_GetQuestionNaireList?forward=QuestionNaireList.jsp" method="post">
                     <input type="hidden" name="CurrentPageNum" value="
                         <%
-
                             if (request.getAttribute("CurrentPageNum") == null) {
                                 out.print(1);
                             } else {
                                 out.print((int) request.getAttribute("CurrentPageNum"));
                             }
-
                         %>">
-
                     <input type="submit" class="HomePageJumpButton" onclick="QuestionNaireListPageHome()" value="|<<">
-
                     <input type="submit" class="HomePageJumpButton" onclick="QuestionNaireListPageUp()" value="<">
-
                     <label id="ListPageNum">
-
                         <%
-
                             if (request.getAttribute("CurrentPageNum") == null) {
                                 out.print(1);
                             } else {
                                 out.print((int) request.getAttribute("CurrentPageNum") + 1);
                             }
-
                         %>
-
                     </label>
-
                     <input type="submit" class="HomePageJumpButton" onclick="QuestionNaireListPageDn()" value=">">
-
                     <input type="submit" class="HomePageJumpButton" onclick="QuestionNaireListPageEnd()" value=">>|">
-
                 </form>
-
-
             </div>
-
         </div>
-
     </div>
-
 </div>
-
 </body>
 </html>

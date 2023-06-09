@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class Servlet_LookThroughQuestionnaires extends HttpServlet {
+public class Servlet_GetQuestionNaireList extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -106,7 +106,7 @@ public class Servlet_LookThroughQuestionnaires extends HttpServlet {
             request.setAttribute("CurrentPageNum", CurrentPageNum);
             request.setAttribute("QuestionNaireInfos", NaireList);
 
-            request.getRequestDispatcher("./QuestionNaireList.jsp").forward(request, response);
+            request.getRequestDispatcher(request.getParameter("forward")).forward(request, response);
 
         } catch (Exception e) {
             throw new ServletException(e.getMessage());

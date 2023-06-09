@@ -277,7 +277,7 @@ public class Servlet_CreateQuestionNaire extends HttpServlet {
 
             conn.close();
 
-            response.sendRedirect("./Servlet_LookThroughQuestionnaires");
+            response.sendRedirect("Servlet_GetQuestionNaireList?forward=QuestionNaireList.jsp");
 
         } catch (Exception e) {
 

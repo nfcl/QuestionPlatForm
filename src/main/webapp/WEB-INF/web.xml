@@ -27,12 +27,12 @@
 
     <servlet>
         <servlet-name>Servlet_LookThroughQuestionnaires</servlet-name>
-        <servlet-class>Servlet_LookThroughQuestionnaires</servlet-class>
+        <servlet-class>Servlet_GetQuestionNaireList</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>Servlet_LookThroughQuestionnaires</servlet-name>
-        <url-pattern>/Servlet_LookThroughQuestionnaires</url-pattern>
+        <url-pattern>/Servlet_GetQuestionNaireList</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -113,6 +113,16 @@
     <servlet-mapping>
         <servlet-name>Servlet_SignOff</servlet-name>
         <url-pattern>/Servlet_SignOff</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet_DeleteQuestionNaire</servlet-name>
+        <servlet-class>Servlet_DeleteQuestionNaire</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Servlet_DeleteQuestionNaire</servlet-name>
+        <url-pattern>/Servlet_DeleteQuestionNaire</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -211,7 +211,7 @@ public class Servlet_GetQuestionNaireInfo extends HttpServlet {
 
             request.setAttribute("QuestionNaire", questionNaire);
 
-            request.getRequestDispatcher("./QuestionNaireInfo.jsp").forward(request, response);
+            request.getRequestDispatcher("QuestionNaireInfo.jsp").forward(request, response);
 
         } catch (Exception e) {
 

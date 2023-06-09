@@ -9,16 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.CreateQuestionNaire 创建问卷页面 完成后端向数据库插入问卷的Servlet">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/UserManager.jsp" afterDir="false" />
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.UserManager 用户管理页面 控制用户数据">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Servlet_DeleteQuestionNaire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/QuestionNaireManager.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_DropUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_DropUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_GetUserList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetUserList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sessions/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sessions/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_CreateQuestionNaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_CreateQuestionNaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_SignOff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_SignOff.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/AsideBar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/AsideBar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/UserManager.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/UserManager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/QuestionNaireList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/QuestionNaireList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireInfo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireManager.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/QuestionNaireManager.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireManager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/QuestionNaireManager.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +256,7 @@
       <workItem from="1686210658094" duration="3023000" />
       <workItem from="1686219597603" duration="4510000" />
       <workItem from="1686274216385" duration="3940000" />
-      <workItem from="1686284518590" duration="13477000" />
+      <workItem from="1686284518590" duration="25997000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -405,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686295271495</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.UserManager 用户管理页面 控制用户数据">
+      <created>1686300328305</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1686300328305</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +472,8 @@
     <MESSAGE value="删除了不需要的文件" />
     <MESSAGE value="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.CreateQuestionNaire 创建问卷页面 页面已完成 还在重写后端向数据库插入问卷的Servlet" />
     <MESSAGE value="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.CreateQuestionNaire 创建问卷页面 完成后端向数据库插入问卷的Servlet" />
-    <option name="LAST_COMMIT_MESSAGE" value="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.CreateQuestionNaire 创建问卷页面 完成后端向数据库插入问卷的Servlet" />
+    <MESSAGE value="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.UserManager 用户管理页面 控制用户数据" />
+    <option name="LAST_COMMIT_MESSAGE" value="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.UserManager 用户管理页面 控制用户数据" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
