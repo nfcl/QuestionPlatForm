@@ -9,17 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="删除了不需要的文件">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/CreateQuestionNaire.jsp" afterDir="false" />
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.CreateQuestionNaire 创建问卷页面 页面已完成 还在重写后端向数据库插入问卷的Servlet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_CreateQuestionNaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_CreateQuestionNaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sessions/QuestionNaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sessions/QuestionNaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/AsideBar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/AsideBar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/CreateNewQuestionNaire.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/CreateNewQuestionNaire.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/CreateNewQuestionNaire.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +242,7 @@
       <workItem from="1686210658094" duration="3023000" />
       <workItem from="1686219597603" duration="4510000" />
       <workItem from="1686274216385" duration="3940000" />
-      <workItem from="1686284518590" duration="5946000" />
+      <workItem from="1686284518590" duration="8836000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -392,7 +384,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686276942982</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.CreateQuestionNaire 创建问卷页面 页面已完成 还在重写后端向数据库插入问卷的Servlet">
+      <created>1686291835536</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1686291835536</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,9 +442,19 @@
     <MESSAGE value="正在用JSP标签重写所有的页面&#10;目前重写好的页面：&#10;1.NavigationBar 将导航栏拆出来变成一个独立的JSP文件并在需要的文件使用jsp:include动态包含到JSP文件中&#10;2.AsideBar 和导航栏一样从原来的页面中拆出来的侧边栏&#10;3.SignIn 登录页面&#10;4.SignUp 注册页面&#10;5.QuestionNaireList 问卷列表浏览界面(目前还只写了列表浏览部分跳转到问卷详情页面还没写)" />
     <MESSAGE value="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.QuestionNaireList 添加了跳转倒填写问卷的页面&#10;2.QuestionNaireInfo 填写问卷的页面" />
     <MESSAGE value="删除了不需要的文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除了不需要的文件" />
+    <MESSAGE value="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.CreateQuestionNaire 创建问卷页面 页面已完成 还在重写后端向数据库插入问卷的Servlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.CreateQuestionNaire 创建问卷页面 页面已完成 还在重写后端向数据库插入问卷的Servlet" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Servlet_CreateQuestionNaire.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
         <watch expression="DruidUtil" />
