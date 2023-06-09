@@ -9,21 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="正在用JSP标签重写所有的页面&#10;目前重写好的页面：&#10;1.NavigationBar 将导航栏拆出来变成一个独立的JSP文件并在需要的文件使用jsp:include动态包含到JSP文件中&#10;2.AsideBar 和导航栏一样从原来的页面中拆出来的侧边栏&#10;3.SignIn 登录页面&#10;4.SignUp 注册页面&#10;5.QuestionNaireList 问卷列表浏览界面(目前还只写了列表浏览部分跳转到问卷详情页面还没写)">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/QuestionNaireInfo.jsp" afterDir="false" />
+    <list default="true" id="b91f3db8-a9d3-4ad2-a335-04a23b37c51b" name="变更" comment="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.QuestionNaireList 添加了跳转倒填写问卷的页面&#10;2.QuestionNaireInfo 填写问卷的页面">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AnswerNaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AnswerNaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_CreateQuestionNaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_CreateQuestionNaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_GetQuestionNaireInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_LookThroughQuestionnaires.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Servlet_PostAnswerNaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Servlet_PostAnswerNaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Sessions/QuestionNaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sessions/QuestionNaire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/QuestionNaireList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/QuestionNaireList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/QuestionNaireList.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/SignIn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/SignUp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/index.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +240,7 @@
       <workItem from="1686189852300" duration="12347000" />
       <workItem from="1686210658094" duration="3023000" />
       <workItem from="1686219597603" duration="4510000" />
-      <workItem from="1686274216385" duration="2555000" />
+      <workItem from="1686274216385" duration="2592000" />
     </task>
     <task id="LOCAL-00001" summary="《新建文件夹》">
       <created>1683213217641</created>
@@ -381,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686150729955</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.QuestionNaireList 添加了跳转倒填写问卷的页面&#10;2.QuestionNaireInfo 填写问卷的页面">
+      <created>1686276796355</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686276796355</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,7 +424,8 @@
     <MESSAGE value="现在显示界面的Iframe高度固定为窗口的剩余大小了！" />
     <MESSAGE value="1.完成了管理员管理用户信息的页面(UserManager部分)&#10;2.完成了用户创建问卷的页面(CreateNewQuestionNaire部分)&#10;3.为index添加了一个刷新页面后使用session在前端重新显示登录用户的功能" />
     <MESSAGE value="正在用JSP标签重写所有的页面&#10;目前重写好的页面：&#10;1.NavigationBar 将导航栏拆出来变成一个独立的JSP文件并在需要的文件使用jsp:include动态包含到JSP文件中&#10;2.AsideBar 和导航栏一样从原来的页面中拆出来的侧边栏&#10;3.SignIn 登录页面&#10;4.SignUp 注册页面&#10;5.QuestionNaireList 问卷列表浏览界面(目前还只写了列表浏览部分跳转到问卷详情页面还没写)" />
-    <option name="LAST_COMMIT_MESSAGE" value="正在用JSP标签重写所有的页面&#10;目前重写好的页面：&#10;1.NavigationBar 将导航栏拆出来变成一个独立的JSP文件并在需要的文件使用jsp:include动态包含到JSP文件中&#10;2.AsideBar 和导航栏一样从原来的页面中拆出来的侧边栏&#10;3.SignIn 登录页面&#10;4.SignUp 注册页面&#10;5.QuestionNaireList 问卷列表浏览界面(目前还只写了列表浏览部分跳转到问卷详情页面还没写)" />
+    <MESSAGE value="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.QuestionNaireList 添加了跳转倒填写问卷的页面&#10;2.QuestionNaireInfo 填写问卷的页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="正在用JSP标签重写所有的页面&#10;重写好的页面:&#10;1.QuestionNaireList 添加了跳转倒填写问卷的页面&#10;2.QuestionNaireInfo 填写问卷的页面" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
