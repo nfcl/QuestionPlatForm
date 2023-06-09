@@ -1,52 +1,79 @@
 import DruidUtil.DruidUtil;
+import Sessions.User;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.LinkedList;
 
 public class Servlet_GetUserList extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //获得输出流
-        PrintWriter out = response.getWriter();
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
-        ResultSet rs = null;
+        Connection conn = null;
 
         PreparedStatement stmt = null;
 
-        Connection conn = null;
+        ResultSet rs = null;
 
         try {
 
             conn = DruidUtil.getDataSource().getConnection();
 
             stmt = conn.prepareStatement("" +
-                "SELECT user_Id,user_Name " +
-                "FROM user"
+                    "SELECT " +
+                    "   user_Id," +
+                    "   user_Name," +
+                    "   user_IsAdmin " +
+                    "FROM " +
+                    "   user " +
+                    "WHERE " +
+                    "   user_Id != ?" +
+                    "   AND user_IsAdmin = 'False'"
             );
+
+            stmt.setString(1, ((User) request.getSession().getAttribute("User")).Id);
 
             rs = stmt.executeQuery();
 
-            while(rs.next()){
+            LinkedList<User> userList = new LinkedList<>();
 
-                out.println("" +
-                    "<li class=\"UserList-li\">" +
-                    rs.getString(2) +
-                    "<input type=\"button\" value=\"删除\" onclick=\"DropUser("+rs.getString(1)+")\">" +
-                    "</li>"
+            while (rs.next()) {
+
+                userList.add(
+                        new User(
+                                rs.getString(1),
+                                rs.getString(2),
+                                rs.getString(3)
+                        )
                 );
 
             }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            rs.close();
+
+            stmt.close();
+
+            conn.close();
+
+            request.setAttribute("UserList", userList);
+
+            request.getRequestDispatcher("./UserManager.jsp").forward(request, response);
+
+        } catch (Exception e) {
+
+            throw new ServletException(e.getMessage());
+
         }
+
+    }
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        doPost(req, resp);
 
     }
 }

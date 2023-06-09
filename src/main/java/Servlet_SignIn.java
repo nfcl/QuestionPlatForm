@@ -51,12 +51,14 @@ public class Servlet_SignIn extends HttpServlet {
 
             if (rs.next()) {
 
-                User user = new User();
-
-                user.Id = rs.getString(1);
-                user.Name = rs.getString(2);
-                user.IsAdmin = rs.getString(3);
-                request.getSession().setAttribute("User", user);
+                request.getSession().setAttribute(
+                        "User",
+                        new User(
+                                rs.getString(1),
+                                rs.getString(2),
+                                rs.getString(3)
+                        )
+                );
                 response.sendRedirect("./SignIn.jsp");
 
             } else {

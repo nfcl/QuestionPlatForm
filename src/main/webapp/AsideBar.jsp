@@ -16,7 +16,7 @@
 <div class='MyAside-Group'>
     <div class='MyAside-GroupTitle'>主页</div>
     <a class='MyAside-Item' href="Servlet_LookThroughQuestionnaires">查看问卷</a>
-    <a class='MyAside-Item' href="./CreateQuestionNaire.jsp">创建问卷</a>
+    <a class='MyAside-Item' href="CreateQuestionNaire.jsp">创建问卷</a>
 </div>
 <%
 
@@ -26,7 +26,7 @@
         out.print(
             "<div class='MyAside-Group'>\n" +
             "    <div class='MyAside-GroupTitle'>管理员</div>\n" +
-            "    <a class='MyAside-Item'>用户</a>\n" +
+            "    <a class='MyAside-Item' href='Servlet_GetUserList'>用户</a>\n" +
             "    <a class='MyAside-Item'>问卷</a>\n" +
             "    <a class='MyAside-Item'>答卷</a>\n" +
             "</div>"
