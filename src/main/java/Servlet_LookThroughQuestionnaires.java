@@ -108,8 +108,8 @@ public class Servlet_LookThroughQuestionnaires extends HttpServlet {
 
             request.getRequestDispatcher("./QuestionNaireList.jsp").forward(request, response);
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new ServletException(e.getMessage());
         }
     }
 

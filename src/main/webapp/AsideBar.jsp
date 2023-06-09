@@ -16,7 +16,7 @@
 <div class='MyAside-Group'>
     <div class='MyAside-GroupTitle'>主页</div>
     <a class='MyAside-Item' href="Servlet_LookThroughQuestionnaires">查看问卷</a>
-    <a class='MyAside-Item'>创建问卷</a>
+    <a class='MyAside-Item' href="./CreateQuestionNaire.jsp">创建问卷</a>
 </div>
 <%
 
