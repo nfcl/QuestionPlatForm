@@ -1,4 +1,4 @@
-#QuestionNaireListView{
+#QuestionNaireListView {
 
     position: relative;
     padding: 0;
@@ -6,12 +6,11 @@
 
 }
 
-.QuestionNaireListView-li{
+.QuestionNaireListView-li {
 
     margin: 10px;
     padding: 20px;
     background-color: #f8f9fa;
-    list-style-type:none;
     transition: background-color 0.25s;
     box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
     border-bottom-left-radius: 10px;
@@ -19,19 +18,19 @@
 
 }
 
-.QuestionNaireListView-li:hover{
+.QuestionNaireListView-li:hover {
 
     background-color: rgba(59, 56, 48, 0.8);
 
 }
 
-.QuestionNaireListView-li:hover *{
+.QuestionNaireListView-li:hover * {
 
     color: rgb(252, 255, 238);
 
 }
 
-.QuestionNaireListView-li *{
+.QuestionNaireListView-li * {
 
     color: rgba(157, 158, 116, 0.84);
     font-family: 黑体, serif;
@@ -40,7 +39,7 @@
 
 }
 
-.QuestionNaireListView-li h1{
+.QuestionNaireListView-li h1 {
 
     font-size: 30px;
     margin: 10px;
@@ -48,27 +47,10 @@
 
 }
 
-.QuestionNaireListView-li div{
+.QuestionNaireListView-li div {
 
     font-size: 20px;
     text-align: right;
     margin: 5px;
-
-}
-
-.HomePageJumpButton{
-
-    position: relative;
-    margin: 0 10px;
-    padding: 5px;
-    background-color: white;
-    transition: color 0.1s,background-color 0.15s;
-
-}
-
-.HomePageJumpButton:hover{
-
-    background-color: #404040;
-    color: #CCCCCC;
 
 }

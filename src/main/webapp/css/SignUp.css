@@ -1,6 +1,15 @@
 #MySignUp{
 
-    padding: 50px 0;
+
+    margin-left:  calc(50% - 250px);
+    margin-right:  calc(50% - 250px);
+    margin-top: 80px;
+
+    border: 4px solid #9d9e74;
+
+    border-radius: 10px;
+
+    box-shadow: 0 6px 6px -2px #0003, 0 11px 15px #00000024, 0 5px 6px #0000001f;
 
 }
 
@@ -8,7 +17,7 @@
 
     font-size: 30px;
     font-family: 黑体, serif;
-    margin: 50px 0;
+    margin: 40px 0;
     display: block;
 
 }
@@ -17,6 +26,7 @@
 
     font-size: 25px;
     font-family: 黑体, serif;
+    margin-bottom: 30px;
 
 }
 
@@ -24,6 +34,7 @@
 
     resize: none;
     font-size: 30px;
-    width: 80%;
+    width: min(80%,300px);
+    margin-left: 20px;
 
 }

@@ -2,11 +2,24 @@
     padding: 0 0 0 0;
     margin: 0 0 0 0;
     user-select: none;
+    cursor: default;
+}
+
+a{
+
+    text-decoration-line: none;
+
+}
+
+li{
+
+    list-style-type: none;
+
 }
 
 body{
 
-    background: url(//prts.wiki/images/d/d8/Bg-mc-icon-demo.png) repeat rgba(255, 254, 248, 0.8);
+    background: url(../resources/BackGround.png) repeat rgba(255, 254, 248, 0.8);
 
 }
 

@@ -13,6 +13,7 @@
     <title>Cierra</title>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/QuestionNaireManager.css">
+    <link rel="stylesheet" href="./css/PageJumpButton.css">
     <script src="./js/QuestionNaireList.js"></script>
 </head>
 <body>
@@ -52,29 +53,90 @@
             <%--</li>--%>
         </ul>
         <div align="center">
-            <form action="Servlet_GetQuestionNaireList?forward=QuestionNaireManager.jsp" method="post">
-                <input type="hidden" name="CurrentPageNum" value="
-                        <%
-                            if (request.getAttribute("CurrentPageNum") == null) {
-                                out.print(1);
-                            } else {
-                                out.print((int) request.getAttribute("CurrentPageNum"));
-                            }
-                        %>">
-                <input type="submit" class="JumpButton" onclick="QuestionNaireListPageHome()" value="|<<">
-                <input type="submit" class="JumpButton" onclick="QuestionNaireListPageUp()" value="<">
-                <label id="ListPageNum">
-                    <%
-                        if (request.getAttribute("CurrentPageNum") == null) {
-                            out.print(1);
-                        } else {
-                            out.print((int) request.getAttribute("CurrentPageNum") + 1);
-                        }
-                    %>
-                </label>
-                <input type="submit" class="JumpButton" onclick="QuestionNaireListPageDn()" value=">">
-                <input type="submit" class="JumpButton" onclick="QuestionNaireListPageEnd()" value=">>|">
-            </form>
+            <%
+                //列表最大页数
+                int MaxPageNum = (int) request.getAttribute("MaxPageNum");
+                //当前位于页数
+                int CurrentPageNum = (int) request.getAttribute("CurrentPageNum");
+
+                int StartShowNum = 3;
+                int EndShowNum = 3;
+                int LeftShowNum = 2;
+                int RightShowNum = 2;
+
+                //        C         M
+                //          5 4 3 2 1
+                //1 2 3 4 5 6 7 8 9 10
+
+                if (StartShowNum + LeftShowNum + 1 >= CurrentPageNum) {
+
+                    for (int i = 1; i < CurrentPageNum; ++i) {
+
+                        out.println("<a class='PageJumpButton' href='Servlet_GetQuestionNaireList?forward=QuestionNaireManager.jsp&CurrentPageNum=" + i + "'>");
+                        out.println(i);
+                        out.println("</a>");
+
+                    }
+
+                } else {
+
+                    for (int i = 1; i <= StartShowNum; ++i) {
+
+                        out.println("<a class='PageJumpButton' href='Servlet_GetQuestionNaireList?forward=QuestionNaireManager.jsp&CurrentPageNum=" + i + "'>");
+                        out.println(i);
+                        out.println("</a>");
+
+                    }
+
+                    out.println("···");
+
+                    for (int i = LeftShowNum; i > 0; --i) {
+
+                        out.println("<a class='PageJumpButton' href='Servlet_GetQuestionNaireList?forward=QuestionNaireManager.jsp&CurrentPageNum=" + (CurrentPageNum - i) + "'>");
+                        out.println(CurrentPageNum - i);
+                        out.println("</a>");
+
+                    }
+
+                }
+
+                out.println("<a class='PageJumpButton CurrentPage' href='Servlet_GetQuestionNaireList?forward=QuestionNaireManager.jsp&CurrentPageNum=" + CurrentPageNum + "'>");
+                out.println(CurrentPageNum);
+                out.println("</a>");
+
+                if (RightShowNum + EndShowNum >= MaxPageNum - CurrentPageNum) {
+
+                    for (int i = CurrentPageNum + 1; i <= MaxPageNum; ++i) {
+
+                        out.println("<a class='PageJumpButton' href='Servlet_GetQuestionNaireList?forward=QuestionNaireManager.jsp&CurrentPageNum=" + i + "'>");
+                        out.println(i);
+                        out.println("</a>");
+
+                    }
+
+                } else {
+
+                    for (int i = 1; i <= RightShowNum; ++i) {
+
+                        out.println("<a class='PageJumpButton' href='Servlet_GetQuestionNaireList?forward=QuestionNaireManager.jsp&CurrentPageNum=" + (CurrentPageNum + i) + "'>");
+                        out.println(CurrentPageNum + i);
+                        out.println("</a>");
+
+                    }
+
+                    out.println("···");
+
+                    for (int i = EndShowNum - 1; i >= 0; --i) {
+
+                        out.println("<a class='PageJumpButton' href='Servlet_GetQuestionNaireList?forward=QuestionNaireManager.jsp&CurrentPageNum=" + (MaxPageNum - i) + "'>");
+                        out.println(MaxPageNum - i);
+                        out.println("</a>");
+
+                    }
+
+                }
+
+            %>
         </div>
     </div>
 </div>

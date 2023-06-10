@@ -44,17 +44,17 @@ public class Servlet_GetQuestionNaireList extends HttpServlet {
 
             stmt.close();
 
-            int CurrentPageNum = 0;
+            int CurrentPageNum = 1;
 
-            int MaxPageNum = (QuestionNaireNum - 1) / PerPageListItemNum;
+            int MaxPageNum = (QuestionNaireNum - 1) / PerPageListItemNum + 1;
 
             if (request.getParameter("CurrentPageNum") != null) {
 
                 CurrentPageNum = Integer.parseInt(request.getParameter("CurrentPageNum"));
 
-                if (CurrentPageNum < 0) {
+                if (CurrentPageNum < 1) {
 
-                    CurrentPageNum = 0;
+                    CurrentPageNum = 1;
 
                 } else if (CurrentPageNum > MaxPageNum) {
 
@@ -77,7 +77,7 @@ public class Servlet_GetQuestionNaireList extends HttpServlet {
                     "   questionnaire.user_Id = user.user_Id " +
                     "LIMIT ?,?;");
 
-            stmt.setInt(1, CurrentPageNum * PerPageListItemNum);
+            stmt.setInt(1, (CurrentPageNum - 1) * PerPageListItemNum);
             stmt.setInt(2, PerPageListItemNum);
 
             rs = stmt.executeQuery();
@@ -103,13 +103,16 @@ public class Servlet_GetQuestionNaireList extends HttpServlet {
 
             conn.close();
 
+            request.setAttribute("MaxPageNum", MaxPageNum);
             request.setAttribute("CurrentPageNum", CurrentPageNum);
             request.setAttribute("QuestionNaireInfos", NaireList);
 
             request.getRequestDispatcher(request.getParameter("forward")).forward(request, response);
 
         } catch (Exception e) {
+
             throw new ServletException(e.getMessage());
+
         }
     }
 
